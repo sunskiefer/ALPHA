@@ -1,6 +1,6 @@
 # ALPHA
 
-OWN build and code Manipulator by Polyverse &amp; Vocal Synth Izotope ahd a baby.
+OWN build and code Manipulator by Polyverse &amp; Vocal Synth Izotope had a baby.
 
 
 A granular vocal transformer with an LFO, 432 factory presets and a Panic tile for the Akai Force and MPC OS (Gen1, ARMv7), by L'Cronx. Put it on a track's input or an audio
