@@ -1,0 +1,2654 @@
+{
+ "name": "ALPHA",
+ "params": [
+  {
+   "key": "pitch",
+   "name": "Pitch",
+   "min": -24.0,
+   "max": 24.0,
+   "default": 0.0,
+   "dynamic_display": true
+  },
+  {
+   "key": "smooth",
+   "name": "Smooth Grains",
+   "min": 0.0,
+   "max": 1.0,
+   "default": 0.25,
+   "dynamic_display": true
+  },
+  {
+   "key": "formant",
+   "name": "Formant",
+   "min": -12.0,
+   "max": 12.0,
+   "default": 0.0,
+   "dynamic_display": true
+  },
+  {
+   "key": "harm",
+   "name": "Harmonics",
+   "min": -8.0,
+   "max": 8.0,
+   "default": 0.0,
+   "dynamic_display": true
+  },
+  {
+   "key": "ratio",
+   "name": "Ratio",
+   "min": 0.0,
+   "max": 1.0,
+   "default": 1.0,
+   "dynamic_display": true
+  },
+  {
+   "key": "fm",
+   "name": "FM",
+   "min": 0.0,
+   "max": 1.0,
+   "default": 0.0,
+   "dynamic_display": true
+  },
+  {
+   "key": "alt",
+   "name": "Alternator",
+   "min": 0.0,
+   "max": 12.0,
+   "default": 0.0,
+   "dynamic_display": true
+  },
+  {
+   "key": "oct",
+   "name": "Octave",
+   "min": -8.0,
+   "max": 8.0,
+   "default": 0.0,
+   "dynamic_display": true
+  },
+  {
+   "key": "smear",
+   "name": "Smear",
+   "min": 0.0,
+   "max": 1.0,
+   "default": 0.0,
+   "dynamic_display": true
+  },
+  {
+   "key": "stereo",
+   "name": "Stereo",
+   "min": 0.0,
+   "max": 1.0,
+   "default": 0.0,
+   "dynamic_display": true
+  },
+  {
+   "key": "detune",
+   "name": "Detune",
+   "min": 0.0,
+   "max": 1.0,
+   "default": 0.0,
+   "dynamic_display": true
+  },
+  {
+   "key": "wet",
+   "name": "Dry/Wet",
+   "min": 0.0,
+   "max": 1.0,
+   "default": 1.0,
+   "dynamic_display": true
+  },
+  {
+   "key": "detect",
+   "name": "Detect",
+   "options": [
+    "Low",
+    "Mid",
+    "High"
+   ],
+   "default": 1
+  },
+  {
+   "key": "snap",
+   "name": "Snap",
+   "options": [
+    "Off",
+    "On"
+   ],
+   "default": 1
+  },
+  {
+   "key": "jitter",
+   "name": "Jitter",
+   "min": 0.0,
+   "max": 1.0,
+   "default": 0.0,
+   "dynamic_display": true
+  },
+  {
+   "key": "window",
+   "name": "Window",
+   "min": 0.0,
+   "max": 1.0,
+   "default": 0.5,
+   "dynamic_display": true
+  },
+  {
+   "key": "density",
+   "name": "Density",
+   "min": -1.0,
+   "max": 1.0,
+   "default": 0.0,
+   "dynamic_display": true
+  },
+  {
+   "key": "gender",
+   "name": "Gender",
+   "min": -1.0,
+   "max": 1.0,
+   "default": 0.0,
+   "dynamic_display": true
+  },
+  {
+   "key": "cons",
+   "name": "Consonant Protect",
+   "options": [
+    "Off",
+    "On"
+   ],
+   "default": 0
+  },
+  {
+   "key": "cons_thr",
+   "name": "Voiced Threshold",
+   "min": 0.2,
+   "max": 0.9,
+   "default": 0.5,
+   "dynamic_display": true
+  },
+  {
+   "key": "freeze",
+   "name": "Freeze",
+   "options": [
+    "Off",
+    "On"
+   ],
+   "default": 0
+  },
+  {
+   "key": "reverse",
+   "name": "Reverse",
+   "options": [
+    "Off",
+    "On"
+   ],
+   "default": 0
+  },
+  {
+   "key": "midi_mode",
+   "name": "MIDI Mode",
+   "options": [
+    "Off",
+    "Mono",
+    "Poly",
+    "M.Gated",
+    "P.Gated"
+   ],
+   "default": 0,
+   "refresh_display": true
+  },
+  {
+   "key": "m_att",
+   "name": "Gate Attack",
+   "min": 1.0,
+   "max": 2000.0,
+   "default": 10.0,
+   "dynamic_display": true
+  },
+  {
+   "key": "m_rel",
+   "name": "Gate Release",
+   "min": 1.0,
+   "max": 3000.0,
+   "default": 100.0,
+   "dynamic_display": true
+  },
+  {
+   "key": "glide",
+   "name": "Glide",
+   "min": 0.0,
+   "max": 1.0,
+   "default": 0.0,
+   "dynamic_display": true
+  },
+  {
+   "key": "glide_m",
+   "name": "Glide MIDI Only",
+   "options": [
+    "Off",
+    "On"
+   ],
+   "default": 0
+  },
+  {
+   "key": "panic",
+   "name": "Panic",
+   "min": 0.0,
+   "max": 1.0,
+   "default": 0.0,
+   "momentary": true,
+   "type": "trigger"
+  },
+  {
+   "key": "m1_on",
+   "name": "Mod 1 On",
+   "options": [
+    "Off",
+    "On"
+   ],
+   "default": 0
+  },
+  {
+   "key": "m1_src",
+   "name": "Mod 1 Source",
+   "options": [
+    "Meta Knob",
+    "MIDI",
+    "Sequencer",
+    "Follower",
+    "ADSR",
+    "LFO"
+   ],
+   "default": 5
+  },
+  {
+   "key": "m1_meta",
+   "name": "Mod 1 Meta",
+   "min": 0.0,
+   "max": 1.0,
+   "default": 0.0,
+   "dynamic_display": true
+  },
+  {
+   "key": "m1_pol",
+   "name": "Mod 1 Polarity",
+   "options": [
+    "+",
+    "-",
+    "B"
+   ],
+   "default": 0
+  },
+  {
+   "key": "m1_steps",
+   "name": "Mod 1 Steps",
+   "min": 0.0,
+   "max": 32.0,
+   "default": 0.0,
+   "dynamic_display": true,
+   "display": "int"
+  },
+  {
+   "key": "m1_mtype",
+   "name": "Mod 1 MIDI Type",
+   "options": [
+    "Note",
+    "Velocity",
+    "Pitch Wheel",
+    "Mod Wheel",
+    "After Touch"
+   ],
+   "default": 1
+  },
+  {
+   "key": "m1_patt",
+   "name": "Mod 1 Pattern",
+   "min": 0.0,
+   "max": 100.0,
+   "default": 0.0,
+   "dynamic_display": true,
+   "display": "int"
+  },
+  {
+   "key": "m1_sync",
+   "name": "Mod 1 Sync",
+   "min": 0.0,
+   "max": 16.0,
+   "default": 4.0,
+   "dynamic_display": true,
+   "display": "int"
+  },
+  {
+   "key": "m1_rate",
+   "name": "Mod 1 Rate",
+   "min": 0.05,
+   "max": 20.0,
+   "default": 1.0,
+   "dynamic_display": true
+  },
+  {
+   "key": "m1_retrig",
+   "name": "Mod 1 Retrig",
+   "options": [
+    "Off",
+    "On"
+   ],
+   "default": 0
+  },
+  {
+   "key": "m1_shape",
+   "name": "Mod 1 Shape",
+   "min": 0.0,
+   "max": 4.0,
+   "default": 1.0,
+   "dynamic_display": true,
+   "display": "int"
+  },
+  {
+   "key": "m1_fatt",
+   "name": "Mod 1 Follow Attack",
+   "min": 1.0,
+   "max": 500.0,
+   "default": 10.0,
+   "dynamic_display": true
+  },
+  {
+   "key": "m1_frel",
+   "name": "Mod 1 Follow Release",
+   "min": 1.0,
+   "max": 2000.0,
+   "default": 200.0,
+   "dynamic_display": true
+  },
+  {
+   "key": "m1_fgain",
+   "name": "Mod 1 Follow Gain",
+   "min": 0.0,
+   "max": 4.0,
+   "default": 2.0,
+   "dynamic_display": true
+  },
+  {
+   "key": "m1_atk",
+   "name": "Mod 1 Attack",
+   "min": 1.0,
+   "max": 5000.0,
+   "default": 10.0,
+   "dynamic_display": true
+  },
+  {
+   "key": "m1_dec",
+   "name": "Mod 1 Decay",
+   "min": 1.0,
+   "max": 5000.0,
+   "default": 200.0,
+   "dynamic_display": true
+  },
+  {
+   "key": "m1_sus",
+   "name": "Mod 1 Sustain",
+   "min": 0.0,
+   "max": 1.0,
+   "default": 0.7,
+   "dynamic_display": true
+  },
+  {
+   "key": "m1_rel",
+   "name": "Mod 1 Release",
+   "min": 1.0,
+   "max": 5000.0,
+   "default": 300.0,
+   "dynamic_display": true
+  },
+  {
+   "key": "m1_xsrc",
+   "name": "Mod 1 Cross Source",
+   "options": [
+    "Off",
+    "Slot 1",
+    "Slot 2",
+    "Slot 3",
+    "Slot 4"
+   ],
+   "default": 0
+  },
+  {
+   "key": "m1_xamt",
+   "name": "Mod 1 Cross Amount",
+   "min": 0.0,
+   "max": 1.0,
+   "default": 0.0,
+   "dynamic_display": true
+  },
+  {
+   "key": "m1_a_pitch",
+   "name": "Mod 1>Pitch",
+   "min": -1.0,
+   "max": 1.0,
+   "default": 0.1,
+   "dynamic_display": true
+  },
+  {
+   "key": "m1_a_smooth",
+   "name": "Mod 1>Smooth",
+   "min": -1.0,
+   "max": 1.0,
+   "default": 0.0,
+   "dynamic_display": true
+  },
+  {
+   "key": "m1_a_formant",
+   "name": "Mod 1>Formnt",
+   "min": -1.0,
+   "max": 1.0,
+   "default": 0.0,
+   "dynamic_display": true
+  },
+  {
+   "key": "m1_a_harm",
+   "name": "Mod 1>Harm",
+   "min": -1.0,
+   "max": 1.0,
+   "default": 0.0,
+   "dynamic_display": true
+  },
+  {
+   "key": "m1_a_ratio",
+   "name": "Mod 1>Ratio",
+   "min": -1.0,
+   "max": 1.0,
+   "default": 0.0,
+   "dynamic_display": true
+  },
+  {
+   "key": "m1_a_fm",
+   "name": "Mod 1>Fm",
+   "min": -1.0,
+   "max": 1.0,
+   "default": 0.0,
+   "dynamic_display": true
+  },
+  {
+   "key": "m1_a_alt",
+   "name": "Mod 1>Alt",
+   "min": -1.0,
+   "max": 1.0,
+   "default": 0.0,
+   "dynamic_display": true
+  },
+  {
+   "key": "m1_a_oct",
+   "name": "Mod 1>Octave",
+   "min": -1.0,
+   "max": 1.0,
+   "default": 0.0,
+   "dynamic_display": true
+  },
+  {
+   "key": "m1_a_smear",
+   "name": "Mod 1>Smear",
+   "min": -1.0,
+   "max": 1.0,
+   "default": 0.0,
+   "dynamic_display": true
+  },
+  {
+   "key": "m1_a_stereo",
+   "name": "Mod 1>Stereo",
+   "min": -1.0,
+   "max": 1.0,
+   "default": 0.0,
+   "dynamic_display": true
+  },
+  {
+   "key": "m1_a_detune",
+   "name": "Mod 1>Detune",
+   "min": -1.0,
+   "max": 1.0,
+   "default": 0.0,
+   "dynamic_display": true
+  },
+  {
+   "key": "m1_a_wet",
+   "name": "Mod 1>Wet",
+   "min": -1.0,
+   "max": 1.0,
+   "default": 0.0,
+   "dynamic_display": true
+  },
+  {
+   "key": "m1_a_jitter",
+   "name": "Mod 1>Jitter",
+   "min": -1.0,
+   "max": 1.0,
+   "default": 0.0,
+   "dynamic_display": true
+  },
+  {
+   "key": "m1_a_window",
+   "name": "Mod 1>Window",
+   "min": -1.0,
+   "max": 1.0,
+   "default": 0.0,
+   "dynamic_display": true
+  },
+  {
+   "key": "m1_a_density",
+   "name": "Mod 1>Dens",
+   "min": -1.0,
+   "max": 1.0,
+   "default": 0.0,
+   "dynamic_display": true
+  },
+  {
+   "key": "m1_a_gender",
+   "name": "Mod 1>Gender",
+   "min": -1.0,
+   "max": 1.0,
+   "default": 0.0,
+   "dynamic_display": true
+  },
+  {
+   "key": "m2_on",
+   "name": "Mod 2 On",
+   "options": [
+    "Off",
+    "On"
+   ],
+   "default": 0
+  },
+  {
+   "key": "m2_src",
+   "name": "Mod 2 Source",
+   "options": [
+    "Meta Knob",
+    "MIDI",
+    "Sequencer",
+    "Follower",
+    "ADSR",
+    "LFO"
+   ],
+   "default": 1
+  },
+  {
+   "key": "m2_meta",
+   "name": "Mod 2 Meta",
+   "min": 0.0,
+   "max": 1.0,
+   "default": 0.0,
+   "dynamic_display": true
+  },
+  {
+   "key": "m2_pol",
+   "name": "Mod 2 Polarity",
+   "options": [
+    "+",
+    "-",
+    "B"
+   ],
+   "default": 0
+  },
+  {
+   "key": "m2_steps",
+   "name": "Mod 2 Steps",
+   "min": 0.0,
+   "max": 32.0,
+   "default": 0.0,
+   "dynamic_display": true,
+   "display": "int"
+  },
+  {
+   "key": "m2_mtype",
+   "name": "Mod 2 MIDI Type",
+   "options": [
+    "Note",
+    "Velocity",
+    "Pitch Wheel",
+    "Mod Wheel",
+    "After Touch"
+   ],
+   "default": 1
+  },
+  {
+   "key": "m2_patt",
+   "name": "Mod 2 Pattern",
+   "min": 0.0,
+   "max": 100.0,
+   "default": 0.0,
+   "dynamic_display": true,
+   "display": "int"
+  },
+  {
+   "key": "m2_sync",
+   "name": "Mod 2 Sync",
+   "min": 0.0,
+   "max": 16.0,
+   "default": 4.0,
+   "dynamic_display": true,
+   "display": "int"
+  },
+  {
+   "key": "m2_rate",
+   "name": "Mod 2 Rate",
+   "min": 0.05,
+   "max": 20.0,
+   "default": 1.0,
+   "dynamic_display": true
+  },
+  {
+   "key": "m2_retrig",
+   "name": "Mod 2 Retrig",
+   "options": [
+    "Off",
+    "On"
+   ],
+   "default": 0
+  },
+  {
+   "key": "m2_shape",
+   "name": "Mod 2 Shape",
+   "min": 0.0,
+   "max": 4.0,
+   "default": 1.0,
+   "dynamic_display": true,
+   "display": "int"
+  },
+  {
+   "key": "m2_fatt",
+   "name": "Mod 2 Follow Attack",
+   "min": 1.0,
+   "max": 500.0,
+   "default": 10.0,
+   "dynamic_display": true
+  },
+  {
+   "key": "m2_frel",
+   "name": "Mod 2 Follow Release",
+   "min": 1.0,
+   "max": 2000.0,
+   "default": 200.0,
+   "dynamic_display": true
+  },
+  {
+   "key": "m2_fgain",
+   "name": "Mod 2 Follow Gain",
+   "min": 0.0,
+   "max": 4.0,
+   "default": 2.0,
+   "dynamic_display": true
+  },
+  {
+   "key": "m2_atk",
+   "name": "Mod 2 Attack",
+   "min": 1.0,
+   "max": 5000.0,
+   "default": 10.0,
+   "dynamic_display": true
+  },
+  {
+   "key": "m2_dec",
+   "name": "Mod 2 Decay",
+   "min": 1.0,
+   "max": 5000.0,
+   "default": 200.0,
+   "dynamic_display": true
+  },
+  {
+   "key": "m2_sus",
+   "name": "Mod 2 Sustain",
+   "min": 0.0,
+   "max": 1.0,
+   "default": 0.7,
+   "dynamic_display": true
+  },
+  {
+   "key": "m2_rel",
+   "name": "Mod 2 Release",
+   "min": 1.0,
+   "max": 5000.0,
+   "default": 300.0,
+   "dynamic_display": true
+  },
+  {
+   "key": "m2_xsrc",
+   "name": "Mod 2 Cross Source",
+   "options": [
+    "Off",
+    "Slot 1",
+    "Slot 2",
+    "Slot 3",
+    "Slot 4"
+   ],
+   "default": 0
+  },
+  {
+   "key": "m2_xamt",
+   "name": "Mod 2 Cross Amount",
+   "min": 0.0,
+   "max": 1.0,
+   "default": 0.0,
+   "dynamic_display": true
+  },
+  {
+   "key": "m2_a_pitch",
+   "name": "Mod 2>Pitch",
+   "min": -1.0,
+   "max": 1.0,
+   "default": 0.0,
+   "dynamic_display": true
+  },
+  {
+   "key": "m2_a_smooth",
+   "name": "Mod 2>Smooth",
+   "min": -1.0,
+   "max": 1.0,
+   "default": 0.0,
+   "dynamic_display": true
+  },
+  {
+   "key": "m2_a_formant",
+   "name": "Mod 2>Formnt",
+   "min": -1.0,
+   "max": 1.0,
+   "default": 0.0,
+   "dynamic_display": true
+  },
+  {
+   "key": "m2_a_harm",
+   "name": "Mod 2>Harm",
+   "min": -1.0,
+   "max": 1.0,
+   "default": 0.0,
+   "dynamic_display": true
+  },
+  {
+   "key": "m2_a_ratio",
+   "name": "Mod 2>Ratio",
+   "min": -1.0,
+   "max": 1.0,
+   "default": 0.0,
+   "dynamic_display": true
+  },
+  {
+   "key": "m2_a_fm",
+   "name": "Mod 2>Fm",
+   "min": -1.0,
+   "max": 1.0,
+   "default": 0.0,
+   "dynamic_display": true
+  },
+  {
+   "key": "m2_a_alt",
+   "name": "Mod 2>Alt",
+   "min": -1.0,
+   "max": 1.0,
+   "default": 0.0,
+   "dynamic_display": true
+  },
+  {
+   "key": "m2_a_oct",
+   "name": "Mod 2>Octave",
+   "min": -1.0,
+   "max": 1.0,
+   "default": 0.0,
+   "dynamic_display": true
+  },
+  {
+   "key": "m2_a_smear",
+   "name": "Mod 2>Smear",
+   "min": -1.0,
+   "max": 1.0,
+   "default": 0.0,
+   "dynamic_display": true
+  },
+  {
+   "key": "m2_a_stereo",
+   "name": "Mod 2>Stereo",
+   "min": -1.0,
+   "max": 1.0,
+   "default": 0.0,
+   "dynamic_display": true
+  },
+  {
+   "key": "m2_a_detune",
+   "name": "Mod 2>Detune",
+   "min": -1.0,
+   "max": 1.0,
+   "default": 0.0,
+   "dynamic_display": true
+  },
+  {
+   "key": "m2_a_wet",
+   "name": "Mod 2>Wet",
+   "min": -1.0,
+   "max": 1.0,
+   "default": 0.0,
+   "dynamic_display": true
+  },
+  {
+   "key": "m2_a_jitter",
+   "name": "Mod 2>Jitter",
+   "min": -1.0,
+   "max": 1.0,
+   "default": 0.0,
+   "dynamic_display": true
+  },
+  {
+   "key": "m2_a_window",
+   "name": "Mod 2>Window",
+   "min": -1.0,
+   "max": 1.0,
+   "default": 0.0,
+   "dynamic_display": true
+  },
+  {
+   "key": "m2_a_density",
+   "name": "Mod 2>Dens",
+   "min": -1.0,
+   "max": 1.0,
+   "default": 0.0,
+   "dynamic_display": true
+  },
+  {
+   "key": "m2_a_gender",
+   "name": "Mod 2>Gender",
+   "min": -1.0,
+   "max": 1.0,
+   "default": 0.0,
+   "dynamic_display": true
+  },
+  {
+   "key": "m3_on",
+   "name": "Mod 3 On",
+   "options": [
+    "Off",
+    "On"
+   ],
+   "default": 0
+  },
+  {
+   "key": "m3_src",
+   "name": "Mod 3 Source",
+   "options": [
+    "Meta Knob",
+    "MIDI",
+    "Sequencer",
+    "Follower",
+    "ADSR",
+    "LFO"
+   ],
+   "default": 2
+  },
+  {
+   "key": "m3_meta",
+   "name": "Mod 3 Meta",
+   "min": 0.0,
+   "max": 1.0,
+   "default": 0.0,
+   "dynamic_display": true
+  },
+  {
+   "key": "m3_pol",
+   "name": "Mod 3 Polarity",
+   "options": [
+    "+",
+    "-",
+    "B"
+   ],
+   "default": 0
+  },
+  {
+   "key": "m3_steps",
+   "name": "Mod 3 Steps",
+   "min": 0.0,
+   "max": 32.0,
+   "default": 0.0,
+   "dynamic_display": true,
+   "display": "int"
+  },
+  {
+   "key": "m3_mtype",
+   "name": "Mod 3 MIDI Type",
+   "options": [
+    "Note",
+    "Velocity",
+    "Pitch Wheel",
+    "Mod Wheel",
+    "After Touch"
+   ],
+   "default": 1
+  },
+  {
+   "key": "m3_patt",
+   "name": "Mod 3 Pattern",
+   "min": 0.0,
+   "max": 100.0,
+   "default": 0.0,
+   "dynamic_display": true,
+   "display": "int"
+  },
+  {
+   "key": "m3_sync",
+   "name": "Mod 3 Sync",
+   "min": 0.0,
+   "max": 16.0,
+   "default": 4.0,
+   "dynamic_display": true,
+   "display": "int"
+  },
+  {
+   "key": "m3_rate",
+   "name": "Mod 3 Rate",
+   "min": 0.05,
+   "max": 20.0,
+   "default": 1.0,
+   "dynamic_display": true
+  },
+  {
+   "key": "m3_retrig",
+   "name": "Mod 3 Retrig",
+   "options": [
+    "Off",
+    "On"
+   ],
+   "default": 0
+  },
+  {
+   "key": "m3_shape",
+   "name": "Mod 3 Shape",
+   "min": 0.0,
+   "max": 4.0,
+   "default": 1.0,
+   "dynamic_display": true,
+   "display": "int"
+  },
+  {
+   "key": "m3_fatt",
+   "name": "Mod 3 Follow Attack",
+   "min": 1.0,
+   "max": 500.0,
+   "default": 10.0,
+   "dynamic_display": true
+  },
+  {
+   "key": "m3_frel",
+   "name": "Mod 3 Follow Release",
+   "min": 1.0,
+   "max": 2000.0,
+   "default": 200.0,
+   "dynamic_display": true
+  },
+  {
+   "key": "m3_fgain",
+   "name": "Mod 3 Follow Gain",
+   "min": 0.0,
+   "max": 4.0,
+   "default": 2.0,
+   "dynamic_display": true
+  },
+  {
+   "key": "m3_atk",
+   "name": "Mod 3 Attack",
+   "min": 1.0,
+   "max": 5000.0,
+   "default": 10.0,
+   "dynamic_display": true
+  },
+  {
+   "key": "m3_dec",
+   "name": "Mod 3 Decay",
+   "min": 1.0,
+   "max": 5000.0,
+   "default": 200.0,
+   "dynamic_display": true
+  },
+  {
+   "key": "m3_sus",
+   "name": "Mod 3 Sustain",
+   "min": 0.0,
+   "max": 1.0,
+   "default": 0.7,
+   "dynamic_display": true
+  },
+  {
+   "key": "m3_rel",
+   "name": "Mod 3 Release",
+   "min": 1.0,
+   "max": 5000.0,
+   "default": 300.0,
+   "dynamic_display": true
+  },
+  {
+   "key": "m3_xsrc",
+   "name": "Mod 3 Cross Source",
+   "options": [
+    "Off",
+    "Slot 1",
+    "Slot 2",
+    "Slot 3",
+    "Slot 4"
+   ],
+   "default": 0
+  },
+  {
+   "key": "m3_xamt",
+   "name": "Mod 3 Cross Amount",
+   "min": 0.0,
+   "max": 1.0,
+   "default": 0.0,
+   "dynamic_display": true
+  },
+  {
+   "key": "m3_a_pitch",
+   "name": "Mod 3>Pitch",
+   "min": -1.0,
+   "max": 1.0,
+   "default": 0.0,
+   "dynamic_display": true
+  },
+  {
+   "key": "m3_a_smooth",
+   "name": "Mod 3>Smooth",
+   "min": -1.0,
+   "max": 1.0,
+   "default": 0.0,
+   "dynamic_display": true
+  },
+  {
+   "key": "m3_a_formant",
+   "name": "Mod 3>Formnt",
+   "min": -1.0,
+   "max": 1.0,
+   "default": 0.0,
+   "dynamic_display": true
+  },
+  {
+   "key": "m3_a_harm",
+   "name": "Mod 3>Harm",
+   "min": -1.0,
+   "max": 1.0,
+   "default": 0.0,
+   "dynamic_display": true
+  },
+  {
+   "key": "m3_a_ratio",
+   "name": "Mod 3>Ratio",
+   "min": -1.0,
+   "max": 1.0,
+   "default": 0.0,
+   "dynamic_display": true
+  },
+  {
+   "key": "m3_a_fm",
+   "name": "Mod 3>Fm",
+   "min": -1.0,
+   "max": 1.0,
+   "default": 0.0,
+   "dynamic_display": true
+  },
+  {
+   "key": "m3_a_alt",
+   "name": "Mod 3>Alt",
+   "min": -1.0,
+   "max": 1.0,
+   "default": 0.0,
+   "dynamic_display": true
+  },
+  {
+   "key": "m3_a_oct",
+   "name": "Mod 3>Octave",
+   "min": -1.0,
+   "max": 1.0,
+   "default": 0.0,
+   "dynamic_display": true
+  },
+  {
+   "key": "m3_a_smear",
+   "name": "Mod 3>Smear",
+   "min": -1.0,
+   "max": 1.0,
+   "default": 0.0,
+   "dynamic_display": true
+  },
+  {
+   "key": "m3_a_stereo",
+   "name": "Mod 3>Stereo",
+   "min": -1.0,
+   "max": 1.0,
+   "default": 0.0,
+   "dynamic_display": true
+  },
+  {
+   "key": "m3_a_detune",
+   "name": "Mod 3>Detune",
+   "min": -1.0,
+   "max": 1.0,
+   "default": 0.0,
+   "dynamic_display": true
+  },
+  {
+   "key": "m3_a_wet",
+   "name": "Mod 3>Wet",
+   "min": -1.0,
+   "max": 1.0,
+   "default": 0.0,
+   "dynamic_display": true
+  },
+  {
+   "key": "m3_a_jitter",
+   "name": "Mod 3>Jitter",
+   "min": -1.0,
+   "max": 1.0,
+   "default": 0.0,
+   "dynamic_display": true
+  },
+  {
+   "key": "m3_a_window",
+   "name": "Mod 3>Window",
+   "min": -1.0,
+   "max": 1.0,
+   "default": 0.0,
+   "dynamic_display": true
+  },
+  {
+   "key": "m3_a_density",
+   "name": "Mod 3>Dens",
+   "min": -1.0,
+   "max": 1.0,
+   "default": 0.0,
+   "dynamic_display": true
+  },
+  {
+   "key": "m3_a_gender",
+   "name": "Mod 3>Gender",
+   "min": -1.0,
+   "max": 1.0,
+   "default": 0.0,
+   "dynamic_display": true
+  },
+  {
+   "key": "m4_on",
+   "name": "Mod 4 On",
+   "options": [
+    "Off",
+    "On"
+   ],
+   "default": 0
+  },
+  {
+   "key": "m4_src",
+   "name": "Mod 4 Source",
+   "options": [
+    "Meta Knob",
+    "MIDI",
+    "Sequencer",
+    "Follower",
+    "ADSR",
+    "LFO"
+   ],
+   "default": 3
+  },
+  {
+   "key": "m4_meta",
+   "name": "Mod 4 Meta",
+   "min": 0.0,
+   "max": 1.0,
+   "default": 0.0,
+   "dynamic_display": true
+  },
+  {
+   "key": "m4_pol",
+   "name": "Mod 4 Polarity",
+   "options": [
+    "+",
+    "-",
+    "B"
+   ],
+   "default": 0
+  },
+  {
+   "key": "m4_steps",
+   "name": "Mod 4 Steps",
+   "min": 0.0,
+   "max": 32.0,
+   "default": 0.0,
+   "dynamic_display": true,
+   "display": "int"
+  },
+  {
+   "key": "m4_mtype",
+   "name": "Mod 4 MIDI Type",
+   "options": [
+    "Note",
+    "Velocity",
+    "Pitch Wheel",
+    "Mod Wheel",
+    "After Touch"
+   ],
+   "default": 1
+  },
+  {
+   "key": "m4_patt",
+   "name": "Mod 4 Pattern",
+   "min": 0.0,
+   "max": 100.0,
+   "default": 0.0,
+   "dynamic_display": true,
+   "display": "int"
+  },
+  {
+   "key": "m4_sync",
+   "name": "Mod 4 Sync",
+   "min": 0.0,
+   "max": 16.0,
+   "default": 4.0,
+   "dynamic_display": true,
+   "display": "int"
+  },
+  {
+   "key": "m4_rate",
+   "name": "Mod 4 Rate",
+   "min": 0.05,
+   "max": 20.0,
+   "default": 1.0,
+   "dynamic_display": true
+  },
+  {
+   "key": "m4_retrig",
+   "name": "Mod 4 Retrig",
+   "options": [
+    "Off",
+    "On"
+   ],
+   "default": 0
+  },
+  {
+   "key": "m4_shape",
+   "name": "Mod 4 Shape",
+   "min": 0.0,
+   "max": 4.0,
+   "default": 1.0,
+   "dynamic_display": true,
+   "display": "int"
+  },
+  {
+   "key": "m4_fatt",
+   "name": "Mod 4 Follow Attack",
+   "min": 1.0,
+   "max": 500.0,
+   "default": 10.0,
+   "dynamic_display": true
+  },
+  {
+   "key": "m4_frel",
+   "name": "Mod 4 Follow Release",
+   "min": 1.0,
+   "max": 2000.0,
+   "default": 200.0,
+   "dynamic_display": true
+  },
+  {
+   "key": "m4_fgain",
+   "name": "Mod 4 Follow Gain",
+   "min": 0.0,
+   "max": 4.0,
+   "default": 2.0,
+   "dynamic_display": true
+  },
+  {
+   "key": "m4_atk",
+   "name": "Mod 4 Attack",
+   "min": 1.0,
+   "max": 5000.0,
+   "default": 10.0,
+   "dynamic_display": true
+  },
+  {
+   "key": "m4_dec",
+   "name": "Mod 4 Decay",
+   "min": 1.0,
+   "max": 5000.0,
+   "default": 200.0,
+   "dynamic_display": true
+  },
+  {
+   "key": "m4_sus",
+   "name": "Mod 4 Sustain",
+   "min": 0.0,
+   "max": 1.0,
+   "default": 0.7,
+   "dynamic_display": true
+  },
+  {
+   "key": "m4_rel",
+   "name": "Mod 4 Release",
+   "min": 1.0,
+   "max": 5000.0,
+   "default": 300.0,
+   "dynamic_display": true
+  },
+  {
+   "key": "m4_xsrc",
+   "name": "Mod 4 Cross Source",
+   "options": [
+    "Off",
+    "Slot 1",
+    "Slot 2",
+    "Slot 3",
+    "Slot 4"
+   ],
+   "default": 0
+  },
+  {
+   "key": "m4_xamt",
+   "name": "Mod 4 Cross Amount",
+   "min": 0.0,
+   "max": 1.0,
+   "default": 0.0,
+   "dynamic_display": true
+  },
+  {
+   "key": "m4_a_pitch",
+   "name": "Mod 4>Pitch",
+   "min": -1.0,
+   "max": 1.0,
+   "default": 0.0,
+   "dynamic_display": true
+  },
+  {
+   "key": "m4_a_smooth",
+   "name": "Mod 4>Smooth",
+   "min": -1.0,
+   "max": 1.0,
+   "default": 0.0,
+   "dynamic_display": true
+  },
+  {
+   "key": "m4_a_formant",
+   "name": "Mod 4>Formnt",
+   "min": -1.0,
+   "max": 1.0,
+   "default": 0.0,
+   "dynamic_display": true
+  },
+  {
+   "key": "m4_a_harm",
+   "name": "Mod 4>Harm",
+   "min": -1.0,
+   "max": 1.0,
+   "default": 0.0,
+   "dynamic_display": true
+  },
+  {
+   "key": "m4_a_ratio",
+   "name": "Mod 4>Ratio",
+   "min": -1.0,
+   "max": 1.0,
+   "default": 0.0,
+   "dynamic_display": true
+  },
+  {
+   "key": "m4_a_fm",
+   "name": "Mod 4>Fm",
+   "min": -1.0,
+   "max": 1.0,
+   "default": 0.0,
+   "dynamic_display": true
+  },
+  {
+   "key": "m4_a_alt",
+   "name": "Mod 4>Alt",
+   "min": -1.0,
+   "max": 1.0,
+   "default": 0.0,
+   "dynamic_display": true
+  },
+  {
+   "key": "m4_a_oct",
+   "name": "Mod 4>Octave",
+   "min": -1.0,
+   "max": 1.0,
+   "default": 0.0,
+   "dynamic_display": true
+  },
+  {
+   "key": "m4_a_smear",
+   "name": "Mod 4>Smear",
+   "min": -1.0,
+   "max": 1.0,
+   "default": 0.0,
+   "dynamic_display": true
+  },
+  {
+   "key": "m4_a_stereo",
+   "name": "Mod 4>Stereo",
+   "min": -1.0,
+   "max": 1.0,
+   "default": 0.0,
+   "dynamic_display": true
+  },
+  {
+   "key": "m4_a_detune",
+   "name": "Mod 4>Detune",
+   "min": -1.0,
+   "max": 1.0,
+   "default": 0.0,
+   "dynamic_display": true
+  },
+  {
+   "key": "m4_a_wet",
+   "name": "Mod 4>Wet",
+   "min": -1.0,
+   "max": 1.0,
+   "default": 0.0,
+   "dynamic_display": true
+  },
+  {
+   "key": "m4_a_jitter",
+   "name": "Mod 4>Jitter",
+   "min": -1.0,
+   "max": 1.0,
+   "default": 0.0,
+   "dynamic_display": true
+  },
+  {
+   "key": "m4_a_window",
+   "name": "Mod 4>Window",
+   "min": -1.0,
+   "max": 1.0,
+   "default": 0.0,
+   "dynamic_display": true
+  },
+  {
+   "key": "m4_a_density",
+   "name": "Mod 4>Dens",
+   "min": -1.0,
+   "max": 1.0,
+   "default": 0.0,
+   "dynamic_display": true
+  },
+  {
+   "key": "m4_a_gender",
+   "name": "Mod 4>Gender",
+   "min": -1.0,
+   "max": 1.0,
+   "default": 0.0,
+   "dynamic_display": true
+  },
+  {
+   "key": "mslot",
+   "name": "Mod Slot",
+   "options": [
+    "Slot 1",
+    "Slot 2",
+    "Slot 3",
+    "Slot 4"
+   ],
+   "default": 0,
+   "refresh_display": true
+  },
+  {
+   "key": "ps_on",
+   "name": "Slot on",
+   "options": [
+    "Off",
+    "On"
+   ],
+   "default": 0
+  },
+  {
+   "key": "ps_src",
+   "name": "Slot src",
+   "options": [
+    "Meta Knob",
+    "MIDI",
+    "Sequencer",
+    "Follower",
+    "ADSR",
+    "LFO"
+   ],
+   "default": 5,
+   "refresh_display": true
+  },
+  {
+   "key": "ps_meta",
+   "name": "Slot meta",
+   "min": 0.0,
+   "max": 1.0,
+   "default": 0.0,
+   "dynamic_display": true
+  },
+  {
+   "key": "ps_pol",
+   "name": "Slot pol",
+   "options": [
+    "+",
+    "-",
+    "B"
+   ],
+   "default": 0
+  },
+  {
+   "key": "ps_steps",
+   "name": "Slot steps",
+   "min": 0.0,
+   "max": 32.0,
+   "default": 0.0,
+   "dynamic_display": true,
+   "display": "int"
+  },
+  {
+   "key": "ps_mtype",
+   "name": "Slot mtype",
+   "options": [
+    "Note",
+    "Velocity",
+    "Pitch Wheel",
+    "Mod Wheel",
+    "After Touch"
+   ],
+   "default": 1
+  },
+  {
+   "key": "ps_patt",
+   "name": "Slot patt",
+   "min": 0.0,
+   "max": 100.0,
+   "default": 0.0,
+   "dynamic_display": true,
+   "display": "int"
+  },
+  {
+   "key": "ps_sync",
+   "name": "Slot sync",
+   "min": 0.0,
+   "max": 16.0,
+   "default": 4.0,
+   "dynamic_display": true,
+   "display": "int"
+  },
+  {
+   "key": "ps_rate",
+   "name": "Slot rate",
+   "min": 0.05,
+   "max": 20.0,
+   "default": 1.0,
+   "dynamic_display": true
+  },
+  {
+   "key": "ps_retrig",
+   "name": "Slot retrig",
+   "options": [
+    "Off",
+    "On"
+   ],
+   "default": 0
+  },
+  {
+   "key": "ps_shape",
+   "name": "Slot shape",
+   "min": 0.0,
+   "max": 4.0,
+   "default": 1.0,
+   "dynamic_display": true,
+   "display": "int"
+  },
+  {
+   "key": "ps_fatt",
+   "name": "Slot fatt",
+   "min": 1.0,
+   "max": 500.0,
+   "default": 10.0,
+   "dynamic_display": true
+  },
+  {
+   "key": "ps_frel",
+   "name": "Slot frel",
+   "min": 1.0,
+   "max": 2000.0,
+   "default": 200.0,
+   "dynamic_display": true
+  },
+  {
+   "key": "ps_fgain",
+   "name": "Slot fgain",
+   "min": 0.0,
+   "max": 4.0,
+   "default": 2.0,
+   "dynamic_display": true
+  },
+  {
+   "key": "ps_atk",
+   "name": "Slot atk",
+   "min": 1.0,
+   "max": 5000.0,
+   "default": 10.0,
+   "dynamic_display": true
+  },
+  {
+   "key": "ps_dec",
+   "name": "Slot dec",
+   "min": 1.0,
+   "max": 5000.0,
+   "default": 200.0,
+   "dynamic_display": true
+  },
+  {
+   "key": "ps_sus",
+   "name": "Slot sus",
+   "min": 0.0,
+   "max": 1.0,
+   "default": 0.7,
+   "dynamic_display": true
+  },
+  {
+   "key": "ps_rel",
+   "name": "Slot rel",
+   "min": 1.0,
+   "max": 5000.0,
+   "default": 300.0,
+   "dynamic_display": true
+  },
+  {
+   "key": "ps_xsrc",
+   "name": "Slot xsrc",
+   "options": [
+    "Off",
+    "Slot 1",
+    "Slot 2",
+    "Slot 3",
+    "Slot 4"
+   ],
+   "default": 0
+  },
+  {
+   "key": "ps_xamt",
+   "name": "Slot xamt",
+   "min": 0.0,
+   "max": 1.0,
+   "default": 0.0,
+   "dynamic_display": true
+  },
+  {
+   "key": "ps_a_pitch",
+   "name": "Slot a_pitch",
+   "min": -1.0,
+   "max": 1.0,
+   "default": 0.1,
+   "dynamic_display": true
+  },
+  {
+   "key": "ps_a_smooth",
+   "name": "Slot a_smooth",
+   "min": -1.0,
+   "max": 1.0,
+   "default": 0.0,
+   "dynamic_display": true
+  },
+  {
+   "key": "ps_a_formant",
+   "name": "Slot a_formant",
+   "min": -1.0,
+   "max": 1.0,
+   "default": 0.0,
+   "dynamic_display": true
+  },
+  {
+   "key": "ps_a_harm",
+   "name": "Slot a_harm",
+   "min": -1.0,
+   "max": 1.0,
+   "default": 0.0,
+   "dynamic_display": true
+  },
+  {
+   "key": "ps_a_ratio",
+   "name": "Slot a_ratio",
+   "min": -1.0,
+   "max": 1.0,
+   "default": 0.0,
+   "dynamic_display": true
+  },
+  {
+   "key": "ps_a_fm",
+   "name": "Slot a_fm",
+   "min": -1.0,
+   "max": 1.0,
+   "default": 0.0,
+   "dynamic_display": true
+  },
+  {
+   "key": "ps_a_alt",
+   "name": "Slot a_alt",
+   "min": -1.0,
+   "max": 1.0,
+   "default": 0.0,
+   "dynamic_display": true
+  },
+  {
+   "key": "ps_a_oct",
+   "name": "Slot a_oct",
+   "min": -1.0,
+   "max": 1.0,
+   "default": 0.0,
+   "dynamic_display": true
+  },
+  {
+   "key": "ps_a_smear",
+   "name": "Slot a_smear",
+   "min": -1.0,
+   "max": 1.0,
+   "default": 0.0,
+   "dynamic_display": true
+  },
+  {
+   "key": "ps_a_stereo",
+   "name": "Slot a_stereo",
+   "min": -1.0,
+   "max": 1.0,
+   "default": 0.0,
+   "dynamic_display": true
+  },
+  {
+   "key": "ps_a_detune",
+   "name": "Slot a_detune",
+   "min": -1.0,
+   "max": 1.0,
+   "default": 0.0,
+   "dynamic_display": true
+  },
+  {
+   "key": "ps_a_wet",
+   "name": "Slot a_wet",
+   "min": -1.0,
+   "max": 1.0,
+   "default": 0.0,
+   "dynamic_display": true
+  },
+  {
+   "key": "ps_a_jitter",
+   "name": "Slot a_jitter",
+   "min": -1.0,
+   "max": 1.0,
+   "default": 0.0,
+   "dynamic_display": true
+  },
+  {
+   "key": "ps_a_window",
+   "name": "Slot a_window",
+   "min": -1.0,
+   "max": 1.0,
+   "default": 0.0,
+   "dynamic_display": true
+  },
+  {
+   "key": "ps_a_density",
+   "name": "Slot a_density",
+   "min": -1.0,
+   "max": 1.0,
+   "default": 0.0,
+   "dynamic_display": true
+  },
+  {
+   "key": "ps_a_gender",
+   "name": "Slot a_gender",
+   "min": -1.0,
+   "max": 1.0,
+   "default": 0.0,
+   "dynamic_display": true
+  },
+  {
+   "key": "seq_s1",
+   "name": "Step 1",
+   "min": -1.0,
+   "max": 1.0,
+   "default": 0.0,
+   "dynamic_display": true
+  },
+  {
+   "key": "seq_s2",
+   "name": "Step 2",
+   "min": -1.0,
+   "max": 1.0,
+   "default": 0.0,
+   "dynamic_display": true
+  },
+  {
+   "key": "seq_s3",
+   "name": "Step 3",
+   "min": -1.0,
+   "max": 1.0,
+   "default": 0.0,
+   "dynamic_display": true
+  },
+  {
+   "key": "seq_s4",
+   "name": "Step 4",
+   "min": -1.0,
+   "max": 1.0,
+   "default": 0.0,
+   "dynamic_display": true
+  },
+  {
+   "key": "seq_s5",
+   "name": "Step 5",
+   "min": -1.0,
+   "max": 1.0,
+   "default": 0.0,
+   "dynamic_display": true
+  },
+  {
+   "key": "seq_s6",
+   "name": "Step 6",
+   "min": -1.0,
+   "max": 1.0,
+   "default": 0.0,
+   "dynamic_display": true
+  },
+  {
+   "key": "seq_s7",
+   "name": "Step 7",
+   "min": -1.0,
+   "max": 1.0,
+   "default": 0.0,
+   "dynamic_display": true
+  },
+  {
+   "key": "seq_s8",
+   "name": "Step 8",
+   "min": -1.0,
+   "max": 1.0,
+   "default": 0.0,
+   "dynamic_display": true
+  },
+  {
+   "key": "seq_s9",
+   "name": "Step 9",
+   "min": -1.0,
+   "max": 1.0,
+   "default": 0.0,
+   "dynamic_display": true
+  },
+  {
+   "key": "seq_s10",
+   "name": "Step 10",
+   "min": -1.0,
+   "max": 1.0,
+   "default": 0.0,
+   "dynamic_display": true
+  },
+  {
+   "key": "seq_s11",
+   "name": "Step 11",
+   "min": -1.0,
+   "max": 1.0,
+   "default": 0.0,
+   "dynamic_display": true
+  },
+  {
+   "key": "seq_s12",
+   "name": "Step 12",
+   "min": -1.0,
+   "max": 1.0,
+   "default": 0.0,
+   "dynamic_display": true
+  },
+  {
+   "key": "seq_s13",
+   "name": "Step 13",
+   "min": -1.0,
+   "max": 1.0,
+   "default": 0.0,
+   "dynamic_display": true
+  },
+  {
+   "key": "seq_s14",
+   "name": "Step 14",
+   "min": -1.0,
+   "max": 1.0,
+   "default": 0.0,
+   "dynamic_display": true
+  },
+  {
+   "key": "seq_s15",
+   "name": "Step 15",
+   "min": -1.0,
+   "max": 1.0,
+   "default": 0.0,
+   "dynamic_display": true
+  },
+  {
+   "key": "seq_s16",
+   "name": "Step 16",
+   "min": -1.0,
+   "max": 1.0,
+   "default": 0.0,
+   "dynamic_display": true
+  },
+  {
+   "key": "mvs",
+   "name": "Source Panel",
+   "options": [
+    "Off",
+    "Meta Knob",
+    "MIDI",
+    "Sequencer",
+    "Follower",
+    "ADSR",
+    "LFO"
+   ],
+   "default": 0
+  },
+  {
+   "key": "view",
+   "name": "View",
+   "options": [
+    "Overview",
+    "Pitch",
+    "Harmonics",
+    "Alternator",
+    "Grains",
+    "Effects",
+    "Midi",
+    "Mod Source",
+    "Mod Amounts",
+    "Sequencer",
+    "User Presets",
+    "Global",
+    "Start"
+   ],
+   "default": 0,
+   "refresh_display": true
+  },
+  {
+   "key": "in_sec",
+   "name": "In Section",
+   "options": [
+    "Overview",
+    "Section"
+   ],
+   "default": 0
+  },
+  {
+   "key": "nv_1",
+   "name": "Nav 1",
+   "min": 0.0,
+   "max": 1.0,
+   "default": 0.0,
+   "momentary": true,
+   "display": "string",
+   "refresh_display": true
+  },
+  {
+   "key": "nv_2",
+   "name": "Nav 2",
+   "min": 0.0,
+   "max": 1.0,
+   "default": 0.0,
+   "momentary": true,
+   "display": "string",
+   "refresh_display": true
+  },
+  {
+   "key": "nv_3",
+   "name": "Nav 3",
+   "min": 0.0,
+   "max": 1.0,
+   "default": 0.0,
+   "momentary": true,
+   "display": "string",
+   "refresh_display": true
+  },
+  {
+   "key": "go_1",
+   "name": "Go 1",
+   "min": 0.0,
+   "max": 1.0,
+   "default": 0.0,
+   "momentary": true,
+   "display": "string",
+   "refresh_display": true
+  },
+  {
+   "key": "go_2",
+   "name": "Go 2",
+   "min": 0.0,
+   "max": 1.0,
+   "default": 0.0,
+   "momentary": true,
+   "display": "string",
+   "refresh_display": true
+  },
+  {
+   "key": "go_3",
+   "name": "Go 3",
+   "min": 0.0,
+   "max": 1.0,
+   "default": 0.0,
+   "momentary": true,
+   "display": "string",
+   "refresh_display": true
+  },
+  {
+   "key": "go_4",
+   "name": "Go 4",
+   "min": 0.0,
+   "max": 1.0,
+   "default": 0.0,
+   "momentary": true,
+   "display": "string",
+   "refresh_display": true
+  },
+  {
+   "key": "go_5",
+   "name": "Go 5",
+   "min": 0.0,
+   "max": 1.0,
+   "default": 0.0,
+   "momentary": true,
+   "display": "string",
+   "refresh_display": true
+  },
+  {
+   "key": "go_6",
+   "name": "Go 6",
+   "min": 0.0,
+   "max": 1.0,
+   "default": 0.0,
+   "momentary": true,
+   "display": "string",
+   "refresh_display": true
+  },
+  {
+   "key": "go_7",
+   "name": "Go 7",
+   "min": 0.0,
+   "max": 1.0,
+   "default": 0.0,
+   "momentary": true,
+   "display": "string",
+   "refresh_display": true
+  },
+  {
+   "key": "go_8",
+   "name": "Go 8",
+   "min": 0.0,
+   "max": 1.0,
+   "default": 0.0,
+   "momentary": true,
+   "display": "string",
+   "refresh_display": true
+  },
+  {
+   "key": "go_9",
+   "name": "Go 9",
+   "min": 0.0,
+   "max": 1.0,
+   "default": 0.0,
+   "momentary": true,
+   "display": "string",
+   "refresh_display": true
+  },
+  {
+   "key": "go_10",
+   "name": "Go 10",
+   "min": 0.0,
+   "max": 1.0,
+   "default": 0.0,
+   "momentary": true,
+   "display": "string",
+   "refresh_display": true
+  },
+  {
+   "key": "go_11",
+   "name": "Go 11",
+   "min": 0.0,
+   "max": 1.0,
+   "default": 0.0,
+   "momentary": true,
+   "display": "string",
+   "refresh_display": true
+  },
+  {
+   "key": "go_12",
+   "name": "Go 12",
+   "min": 0.0,
+   "max": 1.0,
+   "default": 0.0,
+   "momentary": true,
+   "display": "string",
+   "refresh_display": true
+  },
+  {
+   "key": "lslot_1",
+   "name": "Slot 1",
+   "min": 0.0,
+   "max": 1.0,
+   "default": 0.0,
+   "momentary": true,
+   "display": "string",
+   "refresh_display": true
+  },
+  {
+   "key": "lslot_2",
+   "name": "Slot 2",
+   "min": 0.0,
+   "max": 1.0,
+   "default": 0.0,
+   "momentary": true,
+   "display": "string",
+   "refresh_display": true
+  },
+  {
+   "key": "lslot_3",
+   "name": "Slot 3",
+   "min": 0.0,
+   "max": 1.0,
+   "default": 0.0,
+   "momentary": true,
+   "display": "string",
+   "refresh_display": true
+  },
+  {
+   "key": "lslot_4",
+   "name": "Slot 4",
+   "min": 0.0,
+   "max": 1.0,
+   "default": 0.0,
+   "momentary": true,
+   "display": "string",
+   "refresh_display": true
+  },
+  {
+   "key": "lsrc_1",
+   "name": "Source 1",
+   "min": 0.0,
+   "max": 1.0,
+   "default": 0.0,
+   "momentary": true,
+   "display": "string",
+   "refresh_display": true
+  },
+  {
+   "key": "lsrc_2",
+   "name": "Source 2",
+   "min": 0.0,
+   "max": 1.0,
+   "default": 0.0,
+   "momentary": true,
+   "display": "string",
+   "refresh_display": true
+  },
+  {
+   "key": "lsrc_3",
+   "name": "Source 3",
+   "min": 0.0,
+   "max": 1.0,
+   "default": 0.0,
+   "momentary": true,
+   "display": "string",
+   "refresh_display": true
+  },
+  {
+   "key": "lsrc_4",
+   "name": "Source 4",
+   "min": 0.0,
+   "max": 1.0,
+   "default": 0.0,
+   "momentary": true,
+   "display": "string",
+   "refresh_display": true
+  },
+  {
+   "key": "lsrc_5",
+   "name": "Source 5",
+   "min": 0.0,
+   "max": 1.0,
+   "default": 0.0,
+   "momentary": true,
+   "display": "string",
+   "refresh_display": true
+  },
+  {
+   "key": "lmode_1",
+   "name": "Mode 1",
+   "min": 0.0,
+   "max": 1.0,
+   "default": 0.0,
+   "momentary": true,
+   "display": "string",
+   "refresh_display": true
+  },
+  {
+   "key": "lmode_2",
+   "name": "Mode 2",
+   "min": 0.0,
+   "max": 1.0,
+   "default": 0.0,
+   "momentary": true,
+   "display": "string",
+   "refresh_display": true
+  },
+  {
+   "key": "lmode_3",
+   "name": "Mode 3",
+   "min": 0.0,
+   "max": 1.0,
+   "default": 0.0,
+   "momentary": true,
+   "display": "string",
+   "refresh_display": true
+  },
+  {
+   "key": "lmode_4",
+   "name": "Mode 4",
+   "min": 0.0,
+   "max": 1.0,
+   "default": 0.0,
+   "momentary": true,
+   "display": "string",
+   "refresh_display": true
+  },
+  {
+   "key": "lmode_5",
+   "name": "Mode 5",
+   "min": 0.0,
+   "max": 1.0,
+   "default": 0.0,
+   "momentary": true,
+   "display": "string",
+   "refresh_display": true
+  },
+  {
+   "key": "cpol_1",
+   "name": "Polarity Tile",
+   "min": 0.0,
+   "max": 1.0,
+   "default": 0.0,
+   "momentary": true,
+   "display": "string",
+   "refresh_display": true
+  },
+  {
+   "key": "cmt_1",
+   "name": "MIDI Type Tile",
+   "min": 0.0,
+   "max": 1.0,
+   "default": 0.0,
+   "momentary": true,
+   "display": "string",
+   "refresh_display": true
+  },
+  {
+   "key": "cxs_1",
+   "name": "Cross Tile",
+   "min": 0.0,
+   "max": 1.0,
+   "default": 0.0,
+   "momentary": true,
+   "display": "string",
+   "refresh_display": true
+  },
+  {
+   "key": "cdt_1",
+   "name": "Detect Tile",
+   "min": 0.0,
+   "max": 1.0,
+   "default": 0.0,
+   "momentary": true,
+   "display": "string",
+   "refresh_display": true
+  },
+  {
+   "key": "info",
+   "name": "Info",
+   "min": 0.0,
+   "max": 1.0,
+   "default": 0.0,
+   "display": "string",
+   "type": "readout"
+  },
+  {
+   "key": "upre_info",
+   "name": "User Preset Info",
+   "min": 0.0,
+   "max": 1.0,
+   "default": 0.0,
+   "display": "string",
+   "type": "readout"
+  },
+  {
+   "key": "upre",
+   "name": "User Slot",
+   "min": 1.0,
+   "max": 9999.0,
+   "default": 1.0,
+   "dynamic_display": true,
+   "display": "int",
+   "refresh_display": true,
+   "nudge_pct": 10
+  },
+  {
+   "key": "upa_1",
+   "name": "User Preset 1",
+   "min": 0.0,
+   "max": 1.0,
+   "default": 0.0,
+   "momentary": true,
+   "display": "string",
+   "refresh_display": true
+  },
+  {
+   "key": "upa_2",
+   "name": "User Preset 2",
+   "min": 0.0,
+   "max": 1.0,
+   "default": 0.0,
+   "momentary": true,
+   "display": "string",
+   "refresh_display": true
+  },
+  {
+   "key": "upa_3",
+   "name": "User Preset 3",
+   "min": 0.0,
+   "max": 1.0,
+   "default": 0.0,
+   "momentary": true,
+   "display": "string",
+   "refresh_display": true
+  },
+  {
+   "key": "pnc_1",
+   "name": "Panic Tile",
+   "min": 0.0,
+   "max": 1.0,
+   "default": 0.0,
+   "momentary": true,
+   "display": "string",
+   "refresh_display": true
+  },
+  {
+   "key": "ql1",
+   "name": "Q-Link 1",
+   "min": 0.0,
+   "max": 1.0,
+   "default": 0.0,
+   "dynamic_name": true,
+   "dynamic_display": true
+  },
+  {
+   "key": "ql2",
+   "name": "Q-Link 2",
+   "min": 0.0,
+   "max": 1.0,
+   "default": 0.0,
+   "dynamic_name": true,
+   "dynamic_display": true
+  },
+  {
+   "key": "ql3",
+   "name": "Q-Link 3",
+   "min": 0.0,
+   "max": 1.0,
+   "default": 0.0,
+   "dynamic_name": true,
+   "dynamic_display": true
+  },
+  {
+   "key": "ql4",
+   "name": "Q-Link 4",
+   "min": 0.0,
+   "max": 1.0,
+   "default": 0.0,
+   "dynamic_name": true,
+   "dynamic_display": true
+  },
+  {
+   "key": "ql5",
+   "name": "Q-Link 5",
+   "min": 0.0,
+   "max": 1.0,
+   "default": 0.0,
+   "dynamic_name": true,
+   "dynamic_display": true
+  },
+  {
+   "key": "ql6",
+   "name": "Q-Link 6",
+   "min": 0.0,
+   "max": 1.0,
+   "default": 0.0,
+   "dynamic_name": true,
+   "dynamic_display": true
+  },
+  {
+   "key": "ql7",
+   "name": "Q-Link 7",
+   "min": 0.0,
+   "max": 1.0,
+   "default": 0.0,
+   "dynamic_name": true,
+   "dynamic_display": true
+  },
+  {
+   "key": "ql8",
+   "name": "Q-Link 8",
+   "min": 0.0,
+   "max": 1.0,
+   "default": 0.0,
+   "dynamic_name": true,
+   "dynamic_display": true
+  },
+  {
+   "key": "ql9",
+   "name": "Q-Link 9",
+   "min": 0.0,
+   "max": 1.0,
+   "default": 0.0,
+   "dynamic_name": true,
+   "dynamic_display": true
+  },
+  {
+   "key": "ql10",
+   "name": "Q-Link 10",
+   "min": 0.0,
+   "max": 1.0,
+   "default": 0.0,
+   "dynamic_name": true,
+   "dynamic_display": true
+  },
+  {
+   "key": "ql11",
+   "name": "Q-Link 11",
+   "min": 0.0,
+   "max": 1.0,
+   "default": 0.0,
+   "dynamic_name": true,
+   "dynamic_display": true
+  },
+  {
+   "key": "ql12",
+   "name": "Q-Link 12",
+   "min": 0.0,
+   "max": 1.0,
+   "default": 0.0,
+   "dynamic_name": true,
+   "dynamic_display": true
+  },
+  {
+   "key": "ql13",
+   "name": "Q-Link 13",
+   "min": 0.0,
+   "max": 1.0,
+   "default": 0.0,
+   "dynamic_name": true,
+   "dynamic_display": true
+  },
+  {
+   "key": "ql14",
+   "name": "Q-Link 14",
+   "min": 0.0,
+   "max": 1.0,
+   "default": 0.0,
+   "dynamic_name": true,
+   "dynamic_display": true
+  },
+  {
+   "key": "ql15",
+   "name": "Q-Link 15",
+   "min": 0.0,
+   "max": 1.0,
+   "default": 0.0,
+   "dynamic_name": true,
+   "dynamic_display": true
+  },
+  {
+   "key": "ql16",
+   "name": "Q-Link 16",
+   "min": 0.0,
+   "max": 1.0,
+   "default": 0.0,
+   "dynamic_name": true,
+   "dynamic_display": true
+  },
+  {
+   "key": "m1_wave",
+   "name": "Mod 1 LFO Wave",
+   "options": [
+    "Sine",
+    "Triangle",
+    "Saw Up",
+    "Saw Down",
+    "Square",
+    "Smooth Rnd",
+    "Step Rnd"
+   ],
+   "default": 0
+  },
+  {
+   "key": "m2_wave",
+   "name": "Mod 2 LFO Wave",
+   "options": [
+    "Sine",
+    "Triangle",
+    "Saw Up",
+    "Saw Down",
+    "Square",
+    "Smooth Rnd",
+    "Step Rnd"
+   ],
+   "default": 0
+  },
+  {
+   "key": "m3_wave",
+   "name": "Mod 3 LFO Wave",
+   "options": [
+    "Sine",
+    "Triangle",
+    "Saw Up",
+    "Saw Down",
+    "Square",
+    "Smooth Rnd",
+    "Step Rnd"
+   ],
+   "default": 0
+  },
+  {
+   "key": "m4_wave",
+   "name": "Mod 4 LFO Wave",
+   "options": [
+    "Sine",
+    "Triangle",
+    "Saw Up",
+    "Saw Down",
+    "Square",
+    "Smooth Rnd",
+    "Step Rnd"
+   ],
+   "default": 0
+  },
+  {
+   "key": "m1_phase",
+   "name": "Mod 1 LFO Phase",
+   "min": 0.0,
+   "max": 1.0,
+   "default": 0.0,
+   "dynamic_display": true
+  },
+  {
+   "key": "m2_phase",
+   "name": "Mod 2 LFO Phase",
+   "min": 0.0,
+   "max": 1.0,
+   "default": 0.0,
+   "dynamic_display": true
+  },
+  {
+   "key": "m3_phase",
+   "name": "Mod 3 LFO Phase",
+   "min": 0.0,
+   "max": 1.0,
+   "default": 0.0,
+   "dynamic_display": true
+  },
+  {
+   "key": "m4_phase",
+   "name": "Mod 4 LFO Phase",
+   "min": 0.0,
+   "max": 1.0,
+   "default": 0.0,
+   "dynamic_display": true
+  },
+  {
+   "key": "ps_wave",
+   "name": "Slot wave",
+   "options": [
+    "Sine",
+    "Triangle",
+    "Saw Up",
+    "Saw Down",
+    "Square",
+    "Smooth Rnd",
+    "Step Rnd"
+   ],
+   "default": 0
+  },
+  {
+   "key": "ps_phase",
+   "name": "Slot phase",
+   "min": 0.0,
+   "max": 1.0,
+   "default": 0.0,
+   "dynamic_display": true
+  },
+  {
+   "key": "nv_4",
+   "name": "Nav 4",
+   "min": 0.0,
+   "max": 1.0,
+   "default": 0.0,
+   "momentary": true,
+   "display": "string",
+   "refresh_display": true
+  },
+  {
+   "key": "lsrc_6",
+   "name": "Source 6",
+   "min": 0.0,
+   "max": 1.0,
+   "default": 0.0,
+   "momentary": true,
+   "display": "string",
+   "refresh_display": true
+  },
+  {
+   "key": "hint",
+   "name": "Hint",
+   "min": 0.0,
+   "max": 1.0,
+   "default": 0.0,
+   "display": "string",
+   "type": "readout"
+  }
+ ]
+}

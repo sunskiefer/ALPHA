@@ -1,0 +1,4 @@
+build/
+dist/
+__pycache__/
+third_party/mpc-vst-plugins

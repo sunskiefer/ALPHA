@@ -1,0 +1,15 @@
+Required Notice: Copyright L'Cronx (ALPHA)
+
+ALPHA is licensed under the PolyForm Noncommercial License 1.0.0 (file LICENSE).
+
+Third-party code compiled into the plugin:
+  mpc-vst-plugins wrapper (wrapper/vst2_wrap.c, engine.h, plugin_dir.h, popup.h)   MIT License, Copyright (c) 2026 sd88me
+  Brickwall limiter (src/limiter.h) and denormal guard (src/denormals.h)           the ALPHA author's own code (also GPL-3.0-or-later in RMXXXL / PlateauXXL)
+
+Published algorithms used (re-implemented, no code copied):
+  McLeod & Wyvill, "A smarter way to find pitch" (NSDF pitch detection)
+  Olli Niemitalo, "Hilbert transformer" all-pass coefficients (musicdsp.org), for the frequency shifter
+  Time-domain pitch-synchronous overlap-add (TD-PSOLA), Moulines & Charpentier
+
+ALPHA is an independent plugin. Its control list follows what a publicly documented plugin of this kind offers;
+it contains no code, samples, presets, artwork or names from any other product.
