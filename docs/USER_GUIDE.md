@@ -17,7 +17,7 @@ the pages, `<` and `>` step between pages, OVERVIEW goes back, and **PANIC** (th
 | MOD SOURCE | slot 1-4, On, source list, the source's controls, cross-modulation (source and amount) |
 | MOD AMOUNTS | the selected slot's amount (-100..+100 %) on each of 16 targets |
 | SEQUENCER | the selected slot's 16 steps |
-| USER PRESETS | slot number, Load, Save, Next free |
+| USER PRESETS | slot number, Load, Save, Delete |
 | GLOBAL | Detect (Low/Mid/High), Snap, Consonant protect and its threshold, Align, Panic |
 
 ## The controls
