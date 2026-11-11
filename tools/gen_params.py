@@ -182,6 +182,8 @@ P += [opts("align", "Align Dry", OFF_ON, 0), opts("tune", "Tune", OFF_ON, 0),
       iknob("tune_scale", "Tune Scale", 0, len(SCALES) - 1, 0, refresh_display=True),
       iknob("tune_key", "Tune Key", 0, 11, 0, refresh_display=True),
       knob("tune_speed", "Tune Speed", 0.0, 1.0, 0.3), knob("tune_amount", "Tune Amount", 0.0, 1.0, 1.0)]
+# 1.2.1: a computed switch for the MIDI page's gate knobs (when= takes one parameter, so the page and the mode are combined here)
+P += [opts("mg", "Gate Panel", OFF_ON, 0)]
 TUNE_KEYS = ["tune", "tune_scale", "tune_key", "tune_speed", "tune_amount", "align"]
 KEYS = [p["key"] for p in P]
 assert len(KEYS) == len(set(KEYS)), "duplicate key"
@@ -459,9 +461,8 @@ knobs_row("fx", [("smear", "SMEAR"), ("stereo", "STEREO"), ("detune", "DETUNE"),
 add("list x=16 y=170 w=1248 h=60 cols=5 rows=1 th=60 gap=8 key=lmode tsize=28 tweight=700 talign=center %s" % when("midi"))
 knobs_row("midi", [("glide", "GLIDE")], R1 + 40, [160])
 add("toggle cx=480 cy=%d label=\"GLIDE M\" key=glide_m bw=150 %s" % (R1 + 40, when("midi")))
-for mode in ("m.gated", "p.gated"):
-    add('knob cx=800 cy=%d r=56 label="ATTACK" key=m_att bw=150 when=midi_mode:%s' % (R1 + 40, mode))
-    add('knob cx=1120 cy=%d r=56 label="RELEASE" key=m_rel bw=150 when=midi_mode:%s' % (R1 + 40, mode))
+add('knob cx=800 cy=%d r=56 label="ATTACK" key=m_att bw=150 when=mg:1' % (R1 + 40))
+add('knob cx=1120 cy=%d r=56 label="RELEASE" key=m_rel bw=150 when=mg:1' % (R1 + 40))
 # mod source page: slot list, on, source list, per-source controls, cross-mod
 add("list x=16 y=170 w=520 h=52 cols=4 rows=1 th=52 gap=8 key=lslot tsize=26 tweight=700 talign=center %s" % when("src"))
 add("toggle cx=700 cy=164 label=\"ON\" key=ps_on bw=120 %s" % when("src"))

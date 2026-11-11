@@ -2,7 +2,7 @@
   "name": "ALPHA",
   "vendor": "L'Cronx",
   "uid": "AlPh",
-  "version": 1200,
+  "version": 1201,
   "so": "alpha.so",
   "params": "params.json",
   "effect": true,

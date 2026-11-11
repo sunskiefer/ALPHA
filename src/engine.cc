@@ -585,7 +585,7 @@ void SetParam(void* inst, const char* key, const char* val) {
     return;
   }
   if (p == P_VIEW) { SetView(s, static_cast<int>(v + 0.5f)); return; }
-  if (p == P_IN_SEC || p == P_MVS) return;                      // follow the view
+  if (p == P_IN_SEC || p == P_MVS || p == P_MG) return;                      // follow the view
   if (PARAMS[p].momentary) {
     if (s->loading || v <= 0.0f) return;
     bool tap = v > 0.5f;
@@ -793,6 +793,7 @@ int GetParam(void* inst, const char* key, char* buf, int buf_len) {
     if (st > 0 && st < 6) return snprintf(buf, buf_len, "USER %d: %s", slot + 1, k[st]);
     return snprintf(buf, buf_len, "USER %d: %s", slot + 1, Used(s, slot) ? "STORED" : "EMPTY");
   }
+  if (p == P_MG) return snprintf(buf, buf_len, "%d", (s->view == V_MIDI && Opt(s, P_MIDI_MODE) >= 3) ? 1 : 0);
   if (p == P_VIEW) return snprintf(buf, buf_len, "%d", s->view);
   if (p == P_IN_SEC) return snprintf(buf, buf_len, "%d", s->view > 0 ? 1 : 0);
   if (p == P_MVS) return snprintf(buf, buf_len, "%d", s->view == V_SRC ? 1 + Clampi(Opt(s, P_SLOT0 + Slot(s) * N_FIELDS + F_SRC), 0, 5) : 0);

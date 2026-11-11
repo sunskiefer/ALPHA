@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.2.1
+
+Bug fix. On the gated MIDI modes (Mono-Gated, Poly-Gated) the ATTACK and RELEASE knobs showed on every page, in the middle of the User Presets page for example (preset "Gated Poly Pad").
+They now show only on the MIDI page. One internal parameter was appended (params.lock) and it is not stored in the project.
+
 ## 1.2.0
 
 Not yet tried on a Force (1.1.0 was the last tested build; the engine is 1.1.0 plus ALIGN and TUNE).

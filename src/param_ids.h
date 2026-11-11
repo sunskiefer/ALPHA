@@ -303,7 +303,8 @@
 #define P_TUNE_KEY 300
 #define P_TUNE_SPEED 301
 #define P_TUNE_AMOUNT 302
-#define P_COUNT 303
+#define P_MG 303
+#define P_COUNT 304
 #define P_N_REAL 172
 #define P_N_VOICE 28
 #define P_WAVE0 284

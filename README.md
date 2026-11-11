@@ -11,7 +11,7 @@ Independent clean-room plugin: the control list follows what a publicly document
 DSP, the presets and the artwork are original. No code, sample, preset or name of another product is in it.
 
 ## Status
-Version 1.2.0. Built for the ARMv7 Force and MPC OS 3.x. **Not yet run on a Force** (1.1.0 was the last build checked offline; ALIGN, TUNE and the new skin are untested on the device).
+Version 1.2.1. Built for the ARMv7 Force and MPC OS 3.x. **Not yet run on a Force** (1.1.0 was the last build checked offline; ALIGN, TUNE and the new skin are untested on the device).
 
 ## Highlights
 - Pitch-synchronous grains: Pitch (±24 st) and Formant (±12 st) move separately, Gender moves both.
@@ -35,12 +35,12 @@ A first-generation MPC OS device (32-bit ARM: Force, MPC Live / Live II, One, X,
 Installing plugins this way is unofficial: back up first, use at your own risk.
 
 ## Latest release
-See the Releases page for `ALPHA-1.2.0-mpc-armv7.zip` and [CHANGELOG.md](CHANGELOG.md).
+See the Releases page for `ALPHA-1.2.1-mpc-armv7.zip` and [CHANGELOG.md](CHANGELOG.md).
 
 ## How to use ALPHA (full guide)
 
 ### 1. Install and first sound
-1. Unzip `ALPHA-1.2.0-mpc-armv7.zip`, copy the folder to the device and run `sh install.sh` as root over SSH (MPC is stopped and restarted, `MPC.settings` is backed up first). `uninstall.sh` removes it again.
+1. Unzip `ALPHA-1.2.1-mpc-armv7.zip`, copy the folder to the device and run `sh install.sh` as root over SSH (MPC is stopped and restarted, `MPC.settings` is backed up first). `uninstall.sh` removes it again.
 2. On a track, add **ALPHA** from the plugin browser. It is an **effect**: put it on an audio track's insert (or the input you sing into). Nothing happens until a voice goes through it.
 3. Sing or speak. The header line on every page shows what ALPHA hears (`F0 ... HZ`, the note, `VOICED`) and the latency. If it says `UNVOICED` there is no pitch to follow: sing louder or change **Detect** (Global page).
 4. Open the **overview** (first screen): twelve tiles, one per page. Tap a tile to open that page. In the header, **OVERVIEW** goes back, `<` and `>` step between pages, and **PANIC** stops all voices and clears the grains, smear and freeze.
