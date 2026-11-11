@@ -86,6 +86,8 @@ struct Instance {
   int range;            // detect range in use
   int E;                // output hold, samples
   int align;            // dry delay, samples
+  float align_f;        // ALIGN: the dry delay in use (follows the voice's period), samples
+  float tune_corr, tune_tgt;   // TUNE: pitch correction now / wanted, semitones
   bool voiced;
   float vmix;
   int jumps;
@@ -276,6 +278,7 @@ void* WorkerLoop(void* arg) {
 // ------------------------------------------------------------------------------------------------ state
 bool StateSkips(int p) {
   if (p >= P_WAVE0 && p < P_PHASE0 + 4) return false;          // the LFO wave and phase are stored
+  if (p >= P_ALIGN && p <= P_TUNE_AMOUNT) return false;        // 1.2.0: ALIGN and TUNE are stored
   return p >= P_N_REAL && p != P_MSLOT && p != P_UPRE;
 }
 
@@ -644,6 +647,8 @@ int Display(const Instance* s, int p, char* buf, int len) {
     case P_DENSITY: case P_GENDER: return snprintf(buf, len, "%+.0f %%", v * 100.0f);
     case P_M_ATT: case P_M_REL: return snprintf(buf, len, "%.0f ms", v);
     case P_UPRE: return snprintf(buf, len, "%d", (int)(v + 0.5f));
+    case P_TUNE_SCALE: return snprintf(buf, len, "%s", kScaleNames[Clampi((int)(v + 0.5f), 0, N_SCALES - 1)]);
+    case P_TUNE_KEY: return snprintf(buf, len, "%s", kKeyNames[Clampi((int)(v + 0.5f), 0, 11)]);
   }
   if (pr >= P_SLOT0 && pr < P_SLOT0 + 4 * N_FIELDS) {
     int f = (pr - P_SLOT0) % N_FIELDS;
@@ -667,6 +672,13 @@ int Display(const Instance* s, int p, char* buf, int len) {
 int Info(const Instance* s, char* buf, int len) {
   char nn[8];
   if (s->frozen) return snprintf(buf, len, "FROZEN   LATENCY %.0f MS", (s->E + 364) * 1000.0f / kSR);
+  if (Opt(s, P_TUNE)) {
+    char sc[40];
+    snprintf(sc, sizeof sc, "%s %s", kKeyNames[Clampi(Opt(s, P_TUNE_KEY), 0, 11)], kScaleNames[Clampi(Opt(s, P_TUNE_SCALE), 0, N_SCALES - 1)]);
+    Upper(sc);
+    if (s->have_pitch && s->voiced) return snprintf(buf, len, "TUNE %s   F0 %.0f HZ  %s", sc, kSR / s->g.T, NoteName(kSR / s->g.T, nn));
+    return snprintf(buf, len, "TUNE %s   UNVOICED", sc);
+  }
   if (s->have_pitch && s->voiced)
     return snprintf(buf, len, "F0 %.0f HZ  %s  VOICED   LAT %.0f MS", kSR / s->g.T, NoteName(kSR / s->g.T, nn),
                     (s->E + 364) * 1000.0f / kSR);
@@ -920,6 +932,27 @@ void ComputeBlock(Instance* s, int frames) {
   s->e_window = Clamp(p[P_WINDOW] + s->mod[13], 0.0f, 1.0f);
   s->e_density = Clamp(p[P_DENSITY] + s->mod[14], -1.0f, 1.0f);
   s->e_oct = s->e_oct;
+  // ---- TUNE: move the voice to the nearest note of the scale (the correction is added to the pitch)
+  if (Opt(s, P_TUNE)) {
+    if (s->have_pitch && s->voiced) {
+      float midi = 69.0f + 12.0f * log2f((kSR / s->g.T) / 440.0f);
+      int key = Clampi(Opt(s, P_TUNE_KEY), 0, 11), sc = Clampi(Opt(s, P_TUNE_SCALE), 0, N_SCALES - 1);
+      unsigned mask = kScaleMask[sc];
+      float best = midi, bd = 1e9f;
+      int base = (int)floorf(midi) - 7;
+      for (int n = base; n <= base + 14; ++n) {
+        int pc = ((n - key) % 12 + 12) % 12;
+        if (!((mask >> pc) & 1u)) continue;
+        float d = fabsf((float)n - midi);
+        if (d < bd) { bd = d; best = (float)n; }
+      }
+      s->tune_tgt = (best - midi) * Clamp(p[P_TUNE_AMOUNT], 0.0f, 1.0f);
+    }
+    float sp = Clamp(p[P_TUNE_SPEED], 0.0f, 1.0f);
+    float tau = 0.001f + 0.4f * (1.0f - sp) * (1.0f - sp);
+    s->tune_corr += (s->tune_tgt - s->tune_corr) * (1.0f - expf(-dt / tau));
+  } else { s->tune_tgt = 0.0f; s->tune_corr = 0.0f; }
+  s->e_pitch += s->tune_corr;
 }
 
 void UpdateVoices(Instance* s, int frames) {
@@ -1043,6 +1076,8 @@ void SpawnGrains(Instance* s, Voice& v, int stream, int nv_gain) {
   }
 }
 
+static inline float g_T_safe(const Instance* s) { return Clamp(s->g.T, 24.0f, 1800.0f); }
+
 void ProcessBlock(Instance* s, const int16_t* in_lr, int16_t* out_lr, int frames) {
   if (s->panic_pending) { s->panic_pending = 0; Panic(s); }
   char* preset = __atomic_exchange_n(&s->loaded_text, (char*)NULL, __ATOMIC_ACQ_REL);
@@ -1074,6 +1109,8 @@ void ProcessBlock(Instance* s, const int16_t* in_lr, int16_t* out_lr, int frames
   float fm_rate = s->f0_out * Clamp(s->e_ratio, 0.25f, 1.0f);
   float wet_c = cosf(s->e_wet * 0.5f * kPi), wet_s = sinf(s->e_wet * 0.5f * kPi);
   bool shifting = s->e_harm != 0.0f;
+  const bool align_on = Opt(s, P_ALIGN) != 0;
+  const float align_tgt = (float)s->E + (s->have_pitch ? g_T_safe(s) : 300.0f);
   float ol[kBlock], orr[kBlock];
   Grains& g = s->g;
 
@@ -1099,8 +1136,21 @@ void ProcessBlock(Instance* s, const int16_t* in_lr, int16_t* out_lr, int frames
     }
     float wetm = g.Emit(s->E);
     // consonant protect: unvoiced sounds go around the grains
-    long ai = (g.Cur() - s->align) & kInMask;
-    float dl = s->dryl[ai], dr = s->dryr[ai];
+    long ai;
+    float dl, dr;
+    if (align_on) {          // ALIGN: the dry path is delayed by what the wet path really is (hold + one period), followed smoothly
+      s->align_f += (align_tgt - s->align_f) * 0.0004f;
+      float pos = (float)g.Cur() - s->align_f;
+      long i0 = (long)floorf(pos);
+      float fr = pos - (float)i0;
+      dl = s->dryl[i0 & kInMask] * (1.0f - fr) + s->dryl[(i0 + 1) & kInMask] * fr;
+      dr = s->dryr[i0 & kInMask] * (1.0f - fr) + s->dryr[(i0 + 1) & kInMask] * fr;
+      ai = (i0 + (fr > 0.5f ? 1 : 0)) & kInMask;
+    } else {
+      s->align_f = (float)s->align;
+      ai = (g.Cur() - s->align) & kInMask;
+      dl = s->dryl[ai]; dr = s->dryr[ai];
+    }
     if (cons) {
       float target = s->vf[ai] ? 1.0f : 0.0f;
       s->vmix += (target - s->vmix) * 0.01f;

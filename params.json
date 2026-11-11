@@ -2649,6 +2649,60 @@
    "default": 0.0,
    "display": "string",
    "type": "readout"
+  },
+  {
+   "key": "align",
+   "name": "Align Dry",
+   "options": [
+    "Off",
+    "On"
+   ],
+   "default": 0
+  },
+  {
+   "key": "tune",
+   "name": "Tune",
+   "options": [
+    "Off",
+    "On"
+   ],
+   "default": 0
+  },
+  {
+   "key": "tune_scale",
+   "name": "Tune Scale",
+   "min": 0.0,
+   "max": 21.0,
+   "default": 0.0,
+   "dynamic_display": true,
+   "display": "int",
+   "refresh_display": true
+  },
+  {
+   "key": "tune_key",
+   "name": "Tune Key",
+   "min": 0.0,
+   "max": 11.0,
+   "default": 0.0,
+   "dynamic_display": true,
+   "display": "int",
+   "refresh_display": true
+  },
+  {
+   "key": "tune_speed",
+   "name": "Tune Speed",
+   "min": 0.0,
+   "max": 1.0,
+   "default": 0.3,
+   "dynamic_display": true
+  },
+  {
+   "key": "tune_amount",
+   "name": "Tune Amount",
+   "min": 0.0,
+   "max": 1.0,
+   "default": 1.0,
+   "dynamic_display": true
   }
  ]
 }

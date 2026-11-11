@@ -1,5 +1,19 @@
 # Changelog
 
+## 1.2.0
+
+Not yet tried on a Force (1.1.0 was the last tested build; the engine is 1.1.0 plus ALIGN and TUNE).
+
+- **TUNE** on the Pitch page: TUNE (on/off), SCALE (22 scales: Chromatic, Major, Minor, Harm Minor, Mel Minor, Dorian, Phrygian,
+  Lydian, Mixolydian, Locrian, Major/Minor Pent, Blues, Whole Tone, Diminished, Hung Minor, Phryg Dom, Hirajoshi, In Sen, triads, Power 5th),
+  KEY (C..B), SPEED and AMOUNT. The voice moves to the nearest scale note; the header readout shows the key and scale. Off by default.
+  The Pitch page's hint line gave way to this row.
+- **ALIGN** on the Global page: the dry path is delayed by the real wet-path delay (hold + one voice period), followed smoothly. Off by default (then as 1.1.0).
+- **60 TUNE presets** (492 factory presets in all).
+- **New skin**: user artwork (big knobs with ticks, pointer and soft shadow), OFF|ON selectors, white option cells with the selected one in magenta,
+  no number under knobs, knob filmstrips of 64 frames, credits line on the User Presets page.
+- Parameters were only appended (params.lock); the six new ones are stored in the project.
+
 ## 1.1.0
 
 Offline-tested only (x86, ASan/UBSan, synthetic voice); not yet tried on a Force.

@@ -10,7 +10,7 @@ Format: `- YYYY-MM-DD name: note`. Mark a line `DONE` when it is dealt with; don
 -
 
 ## Preset requests
-(Which presets are good or bad, and what sounds are missing. The factory bank has 432.)
+(Which presets are good or bad, and what sounds are missing. The factory bank has 492.)
 -
 
 ## Art / skin

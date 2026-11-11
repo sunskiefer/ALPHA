@@ -169,6 +169,20 @@ P_PHASE0 = len(P)
 P += [knob("m%d_phase" % n, "Mod %d LFO Phase" % n, 0.0, 1.0, 0.0) for n in range(1, 5)]
 P += [opts("ps_wave", "Slot wave", WAVE, 0), knob("ps_phase", "Slot phase", 0.0, 1.0, 0.0)]
 P += [tiletext("nv_4", "Nav 4"), tiletext("lsrc_6", "Source 6"), text("hint", "Hint")]
+# ---- 1.2.0: ALIGN (the dry path follows the voice's period) and TUNE (scale / key pitch correction); appended, stored in state
+SCALES = [("Chromatic", [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]), ("Major", [0, 2, 4, 5, 7, 9, 11]), ("Minor", [0, 2, 3, 5, 7, 8, 10]),
+          ("Harm Minor", [0, 2, 3, 5, 7, 8, 11]), ("Mel Minor", [0, 2, 3, 5, 7, 9, 11]), ("Dorian", [0, 2, 3, 5, 7, 9, 10]),
+          ("Phrygian", [0, 1, 3, 5, 7, 8, 10]), ("Lydian", [0, 2, 4, 6, 7, 9, 11]), ("Mixolydian", [0, 2, 4, 5, 7, 9, 10]),
+          ("Locrian", [0, 1, 3, 5, 6, 8, 10]), ("Major Pent", [0, 2, 4, 7, 9]), ("Minor Pent", [0, 3, 5, 7, 10]),
+          ("Blues", [0, 3, 5, 6, 7, 10]), ("Whole Tone", [0, 2, 4, 6, 8, 10]), ("Diminished", [0, 2, 3, 5, 6, 8, 9, 11]),
+          ("Hung Minor", [0, 2, 3, 6, 7, 8, 11]), ("Phryg Dom", [0, 1, 4, 5, 7, 8, 10]), ("Hirajoshi", [0, 2, 3, 7, 8]),
+          ("In Sen", [0, 1, 5, 7, 10]), ("Major Triad", [0, 4, 7]), ("Minor Triad", [0, 3, 7]), ("Power 5th", [0, 7])]
+KEYNAMES = ["C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"]
+P += [opts("align", "Align Dry", OFF_ON, 0), opts("tune", "Tune", OFF_ON, 0),
+      iknob("tune_scale", "Tune Scale", 0, len(SCALES) - 1, 0, refresh_display=True),
+      iknob("tune_key", "Tune Key", 0, 11, 0, refresh_display=True),
+      knob("tune_speed", "Tune Speed", 0.0, 1.0, 0.3), knob("tune_amount", "Tune Amount", 0.0, 1.0, 1.0)]
+TUNE_KEYS = ["tune", "tune_scale", "tune_key", "tune_speed", "tune_amount", "align"]
 KEYS = [p["key"] for p in P]
 assert len(KEYS) == len(set(KEYS)), "duplicate key"
 IDX = {k: i for i, k in enumerate(KEYS)}
@@ -186,7 +200,7 @@ def amt_keys():
 
 VIEW_QL = [qk()] * NV
 VIEW_QL = list(VIEW_QL)
-VIEW_QL[V["pitch"]] = qk("pitch", "smooth", "formant", "gender")
+VIEW_QL[V["pitch"]] = qk("pitch", "smooth", "formant", "gender", "tune", "tune_scale", "tune_key", "tune_speed", "tune_amount")
 VIEW_QL[V["harm"]] = qk("harm", "ratio", "fm")
 VIEW_QL[V["alt"]] = qk("alt", "oct")
 VIEW_QL[V["grain"]] = qk("jitter", "window", "density", "freeze", "reverse")
@@ -195,7 +209,7 @@ VIEW_QL[V["midi"]] = qk("midi_mode", "m_att", "m_rel", "glide", "glide_m")
 VIEW_QL[V["amt"]] = qk(*amt_keys())
 VIEW_QL[V["seq"]] = qk(*["seq_s%d" % i for i in range(1, 17)])
 VIEW_QL[V["pre"]] = qk("upre")
-VIEW_QL[V["glob"]] = qk("snap", "detect", "cons", "cons_thr")
+VIEW_QL[V["glob"]] = qk("snap", "detect", "cons", "cons_thr", "align")
 VIEW_QL[V["start"]] = qk("pitch", "formant", "gender", "harm", "wet", "midi_mode")
 SRC_BASE = ["ps_on", "mslot", "ps_src"]
 SRC_SPEC = [["ps_meta", "ps_pol", "ps_steps"], ["ps_mtype"], ["ps_patt", "ps_sync", "ps_rate", "ps_shape", "ps_retrig"],
@@ -363,9 +377,33 @@ add_p("Pitch Wheel Bend", **merge({"midi_mode": 1}, slot(1, on=1, src=1, mtype=2
 add_p("Aftertouch Wet", **merge({"wet": 0.3}, slot(1, on=1, src=1, mtype=4), amt(1, wet=0.7)))
 add_p("Meta Pitch Formant", **merge(slot(1, on=1, src=0, meta=0.5, pol=2), amt(1, pitch=0.3, formant=0.5)))
 add_p("Meta Everything", **merge(slot(1, on=1, src=0, meta=0.5, pol=2), amt(1, pitch=0.2, formant=0.4, harm=0.3, detune=0.3, stereo=0.4)))
+# ---- 1.2.0 TUNE presets (60): scale/key pitch correction; ALIGN stays off
+SC = dict((n, i) for i, (n, _) in enumerate(SCALES))
+def tune_p(name, scale, key, speed, amount=1.0, **kw):
+    add_p(name, tune=1, tune_scale=SC[scale], tune_key=key, tune_speed=speed, tune_amount=amount, **kw)
+tune_p("Tune Hard Chromatic", "Chromatic", 0, 1.0)
+tune_p("Tune Fast Chromatic", "Chromatic", 0, 0.8)
+tune_p("Tune Natural Chromatic", "Chromatic", 0, 0.45, 0.8)
+tune_p("Tune Gentle Chromatic", "Chromatic", 0, 0.2, 0.5)
+tune_p("Tune Drift Chromatic", "Chromatic", 0, 0.1, 0.3)
+for k in range(12):
+    tune_p("Tune %s Major Hard" % KEYNAMES[k], "Major", k, 0.85)
+for k in range(12):
+    tune_p("Tune %s Minor Hard" % KEYNAMES[k], "Minor", k, 0.85)
+for k in range(12):
+    tune_p("Tune %s Maj Pent Soft" % KEYNAMES[k], "Major Pent", k, 0.6, 0.9)
+for k in range(12):
+    tune_p("Tune %s Min Pent Soft" % KEYNAMES[k], "Minor Pent", k, 0.6, 0.9)
+tune_p("Tune A Blues", "Blues", 9, 0.7)
+tune_p("Tune D Dorian", "Dorian", 2, 0.7)
+tune_p("Tune E Phrygian", "Phrygian", 4, 0.7)
+tune_p("Tune F Lydian", "Lydian", 5, 0.7)
+tune_p("Tune G Mixolydian", "Mixolydian", 7, 0.7)
+tune_p("Tune A Harm Minor", "Harm Minor", 9, 0.75)
+tune_p("Tune A Hirajoshi", "Hirajoshi", 9, 0.75)
 PRESETS += BANK
 assert len(set(n for n, _ in PRESETS)) == len(PRESETS), "preset names must be unique"
-PRESET_KEYS_ORDER = [p["key"] for p in P[:N_VOICE] if not p.get("momentary")]
+PRESET_KEYS_ORDER = [p["key"] for p in P[:N_VOICE] if not p.get("momentary")] + TUNE_KEYS
 SLOT_KEYS = {n: [p["key"] for p in P[P_SLOT0 + (n - 1) * NF:P_SLOT0 + n * NF]] + ["m%d_wave" % n, "m%d_phase" % n] for n in range(1, 5)}
 
 # ------------------------------------------------------------------------------------------------- layout
@@ -479,7 +517,15 @@ knobs_row("start", [("wet", "WET")], R2, [160])
 add("list x=330 y=%d w=920 h=70 cols=5 rows=1 th=70 gap=8 key=lmode tsize=28 tweight=700 talign=center %s" % (R2 - 35, when("start")))
 # hints: one line that says what a page's controls need (empty when nothing is missing)
 for v in ("pitch", "harm", "alt", "fx", "midi", "glob"):
+    if v == "pitch":      # 1.2.0: the Pitch page's hint line gives way to the TUNE row (same slot, so the other controls keep their order)
+        add("toggle cx=128 cy=%d label=\"TUNE\" key=tune bw=150 %s" % (R2, when("pitch")))
+        continue
     add('readout cx=640 cy=604 w=1240 h=44 label="" key=hint tsize=26 tweight=700 %s' % when(v))
+XT = [128, 384, 640, 896, 1152]
+for (k, l), cx in zip([("tune", "TUNE"), ("tune_scale", "SCALE"), ("tune_key", "KEY"), ("tune_speed", "SPEED"), ("tune_amount", "AMOUNT")], XT):
+    if k != "tune":
+        add('knob cx=%d cy=%d r=56 label="%s" key=%s bw=150 %s' % (cx, R2, l, k, when("pitch")))
+add("toggle cx=1120 cy=%d label=\"ALIGN\" key=align bw=150 %s" % (R1, when("glob")))
 add("")
 # Q-Links: ql1..ql16 follow the page (dynamic name and value), like PS3100XXL
 add('qlinks "ALPHA" = ' + ",".join("ql%d" % (i + 1) for i in range(16)))
@@ -530,6 +576,10 @@ def write_all():
     H.append("static const char* const kMtypeNames[5] = {" + ", ".join('"%s"' % s for s in MTYPE) + "};")
     H.append("static const char* const kModeNames[5] = {" + ", ".join('"%s"' % s for s in MIDIMODE) + "};")
     H.append("static const char* const kDetectNames[3] = {" + ", ".join('"%s"' % s for s in DETECT) + "};")
+    H.append("#define N_SCALES %d" % len(SCALES))
+    H.append("static const char* const kScaleNames[N_SCALES] = {" + ", ".join('"%s"' % n for n, _ in SCALES) + "};")
+    H.append("static const unsigned kScaleMask[N_SCALES] = {" + ", ".join(str(sum(1 << i for i in iv)) for _, iv in SCALES) + "};")
+    H.append("static const char* const kKeyNames[12] = {" + ", ".join('"%s"' % n for n in KEYNAMES) + "};")
     H.append("static const char* const kTargetNames[N_TARGETS] = {" + ", ".join('"%s"' % t[1] for t in TARGETS) + "};")
     open(os.path.join(ROOT, "src", "param_ids.h"), "w").write("\n".join(H) + "\n")
     print("params: %d (%d stored), views %d, presets %d" % (len(P), N_REAL, NV, len(PRESETS)))

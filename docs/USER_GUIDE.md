@@ -8,7 +8,7 @@ the pages, `<` and `>` step between pages, OVERVIEW goes back, and **PANIC** (th
 | Page | Controls |
 |---|---|
 | START | Pitch, Formant, Gender, Harmonics, Dry/Wet and the MIDI mode: the six controls that matter most |
-| PITCH | Pitch (±24 st), Smooth Grains, Formant (±12 st), Gender |
+| PITCH | Pitch (±24 st), Smooth Grains, Formant (±12 st), Gender, and the TUNE row: TUNE, Scale, Key, Speed, Amount |
 | HARMONICS | Harmonics (±8), Ratio, FM |
 | ALTERNATOR | Alternator (0-12 st), Octave (±8) |
 | GRAINS | Jitter, Window, Density, Freeze, Reverse |
@@ -18,11 +18,13 @@ the pages, `<` and `>` step between pages, OVERVIEW goes back, and **PANIC** (th
 | MOD AMOUNTS | the selected slot's amount (-100..+100 %) on each of 16 targets |
 | SEQUENCER | the selected slot's 16 steps |
 | USER PRESETS | slot number, Load, Save, Next free |
-| GLOBAL | Detect (Low/Mid/High), Snap, Consonant protect and its threshold, Panic |
+| GLOBAL | Detect (Low/Mid/High), Snap, Consonant protect and its threshold, Align, Panic |
 
 ## The controls
 - **Pitch / Formant**: Pitch moves the voice's pitch; Formant moves the vowel colour without changing the pitch. **Gender** is a
   macro that moves both (up = lighter, down = deeper). Snap rounds Pitch, Formant and Harmonics to whole steps.
+- **TUNE** (Pitch page): when on, the voice is pulled to the nearest note of the chosen **Scale** in the chosen **Key**. **Speed** is how fast it moves (low = gliding, high = hard); **Amount** is how far (100 % = onto the note). The header line shows the key and scale. In the MIDI modes the notes decide the pitch, so TUNE does nothing there.
+- **ALIGN** (Global page): when on, the dry voice is delayed by the real delay of the effect path so dry and wet line up; off keeps the fixed delay of 1.1.0.
 - **Smooth Grains**: low = the exact pitch; high = longer grains, smoother, with some of the original pitch leaking through.
 - **Harmonics, Ratio, FM**: a frequency shifter after the grains. Harmonics shifts by that many multiples of the voice's pitch
   (times Ratio); FM adds a slow wobble to the shift.
@@ -53,5 +55,5 @@ free rate in Hz, retrigger on notes, 16 editable steps), **Follower** (input lev
 (triggered by MIDI notes). Cross-modulation scales a slot by another slot's level.
 
 ## Presets
-The PRESET menu lists the 432 factory presets (pitch ladders, gender, formant, harmonics, alternator, grains, effects, MIDI, LFO, sequencer and more); each starts at full wet. USER PRESETS saves the whole sound to a numbered file (1-9999) in the `presets`
+The PRESET menu lists the 492 factory presets (60 of them TUNE presets: scale and key combinations) (pitch ladders, gender, formant, harmonics, alternator, grains, effects, MIDI, LFO, sequencer and more); each starts at full wet. USER PRESETS saves the whole sound to a numbered file (1-9999) in the `presets`
 folder next to the plugin; Load brings it back. Files are plain text and survive updates.

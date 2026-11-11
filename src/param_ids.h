@@ -297,7 +297,13 @@
 #define P_NV_4 294
 #define P_LSRC_6 295
 #define P_HINT 296
-#define P_COUNT 297
+#define P_ALIGN 297
+#define P_TUNE 298
+#define P_TUNE_SCALE 299
+#define P_TUNE_KEY 300
+#define P_TUNE_SPEED 301
+#define P_TUNE_AMOUNT 302
+#define P_COUNT 303
 #define P_N_REAL 172
 #define P_N_VOICE 28
 #define P_WAVE0 284
@@ -325,7 +331,7 @@ enum { F_ON, F_SRC, F_META, F_POL, F_STEPS, F_MTYPE, F_PATT, F_SYNC, F_RATE, F_R
 #define V_START 12
 static const char* const kTileText[N_TILES] = {"START", "PITCH", "HARMONICS", "ALTERNATOR", "GRAINS", "EFFECTS", "MIDI", "MOD SOURCE", "MOD AMOUNTS", "SEQUENCER", "USER PRESETS", "GLOBAL"};
 static const int kTileView[N_TILES] = {12, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11};
-static const short kViewQl[N_VIEWS][16] = {{-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1}, {0, 1, 2, 17, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1}, {3, 4, 5, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1}, {6, 7, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1}, {14, 15, 16, 20, 21, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1}, {8, 9, 10, 11, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1}, {22, 23, 24, 25, 26, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1}, {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1}, {193, 194, 195, 196, 197, 198, 199, 200, 201, 202, 203, 204, 205, 206, 207, 208}, {209, 210, 211, 212, 213, 214, 215, 216, 217, 218, 219, 220, 221, 222, 223, 224}, {263, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1}, {13, 12, 18, 19, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1}, {0, 2, 17, 3, 11, 22, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1}};
+static const short kViewQl[N_VIEWS][16] = {{-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1}, {0, 1, 2, 17, 298, 299, 300, 301, 302, -1, -1, -1, -1, -1, -1, -1}, {3, 4, 5, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1}, {6, 7, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1}, {14, 15, 16, 20, 21, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1}, {8, 9, 10, 11, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1}, {22, 23, 24, 25, 26, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1}, {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1}, {193, 194, 195, 196, 197, 198, 199, 200, 201, 202, 203, 204, 205, 206, 207, 208}, {209, 210, 211, 212, 213, 214, 215, 216, 217, 218, 219, 220, 221, 222, 223, 224}, {263, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1}, {13, 12, 18, 19, 297, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1}, {0, 2, 17, 3, 11, 22, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1}};
 static const short kSrcQl[6][16] = {{173, 172, 174, 175, 176, 177, 191, 192, -1, -1, -1, -1, -1, -1, -1, -1}, {173, 172, 174, 178, 191, 192, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1}, {173, 172, 174, 179, 180, 181, 183, 182, 191, 192, -1, -1, -1, -1, -1, -1}, {173, 172, 174, 184, 185, 186, 191, 192, -1, -1, -1, -1, -1, -1, -1, -1}, {173, 172, 174, 187, 188, 189, 190, 191, 192, -1, -1, -1, -1, -1, -1, -1}, {173, 172, 174, 292, 181, 180, 293, 182, 191, 192, -1, -1, -1, -1, -1, -1}};
 static const short kTargetParam[] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 14, 15, 16, 17};
 static const float kTargetSpan[] = {24.0f, 1.0f, 12.0f, 8.0f, 1.0f, 1.0f, 12.0f, 8.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f};
@@ -336,4 +342,8 @@ static const char* const kWaveNames[7] = {"Sine", "Triangle", "Saw Up", "Saw Dow
 static const char* const kMtypeNames[5] = {"Note", "Velocity", "Pitch Wheel", "Mod Wheel", "After Touch"};
 static const char* const kModeNames[5] = {"Off", "Mono", "Poly", "M.Gated", "P.Gated"};
 static const char* const kDetectNames[3] = {"Low", "Mid", "High"};
+#define N_SCALES 22
+static const char* const kScaleNames[N_SCALES] = {"Chromatic", "Major", "Minor", "Harm Minor", "Mel Minor", "Dorian", "Phrygian", "Lydian", "Mixolydian", "Locrian", "Major Pent", "Minor Pent", "Blues", "Whole Tone", "Diminished", "Hung Minor", "Phryg Dom", "Hirajoshi", "In Sen", "Major Triad", "Minor Triad", "Power 5th"};
+static const unsigned kScaleMask[N_SCALES] = {4095, 2741, 1453, 2477, 2733, 1709, 1451, 2773, 1717, 1387, 661, 1193, 1257, 1365, 2925, 2509, 1459, 397, 1187, 145, 137, 129};
+static const char* const kKeyNames[12] = {"C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"};
 static const char* const kTargetNames[N_TARGETS] = {"PITCH", "SMOOTH", "FORMNT", "HARM", "RATIO", "FM", "ALT", "OCTAVE", "SMEAR", "STEREO", "DETUNE", "WET", "JITTER", "WINDOW", "DENS", "GENDER"};

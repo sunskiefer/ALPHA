@@ -295,3 +295,9 @@ ps_phase
 nv_4
 lsrc_6
 hint
+align
+tune
+tune_scale
+tune_key
+tune_speed
+tune_amount
