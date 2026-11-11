@@ -11,7 +11,7 @@ Independent clean-room plugin: the control list follows what a publicly document
 DSP, the presets and the artwork are original. No code, sample, preset or name of another product is in it.
 
 ## Status
-Version 1.2.1. Built for the ARMv7 Force and MPC OS 3.x. **Not yet run on a Force** (1.1.0 was the last build checked offline; ALIGN, TUNE and the new skin are untested on the device).
+Version 1.2.1. Built for the ARMv7 Force and MPC OS 3.x. **Tested on an Akai Force running MPC OS 3.9.1 (2026-11-11):** ALIGN, TUNE and the new skin work on the device.
 
 ## Highlights
 - Pitch-synchronous grains: Pitch (±24 st) and Formant (±12 st) move separately, Gender moves both.
@@ -107,8 +107,7 @@ Unzip the release and run `install.sh` (or follow the generated INSTALL.md). `un
 User presets are stored in the `presets` folder beside the plugin.
 
 ## Tested
-1.1.0 was checked offline on a desktop (x86): the framework's ASan/UBSan port test and `test/dsp_test.cc`. 1.2.0 was not run on x86 or a Force. **Not yet run on a Force:** CPU use on the device, whether MIDI reaches an effect plugin on
-each firmware, Q-Link and touch behaviour, and the look of the skin. `tested.json` stays empty until a device test is done.
+1.2.1 was tried on an Akai Force running MPC OS 3.9.1 on 2026-11-11 and works, including ALIGN, TUNE and the new skin; the result is recorded in `tested.json`. 1.1.0 was also checked offline on a desktop (x86): the framework's ASan/UBSan port test and `test/dsp_test.cc`. CPU use on the device and the behaviour on other firmware versions have not been measured.
 
 Latency (measured on a click, dry path): Detect High 21 ms, Mid 33 ms, Low 58 ms.
 

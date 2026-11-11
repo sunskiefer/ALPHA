@@ -3,11 +3,11 @@
 ## 1.2.1
 
 Bug fix. On the gated MIDI modes (Mono-Gated, Poly-Gated) the ATTACK and RELEASE knobs showed on every page, in the middle of the User Presets page for example (preset "Gated Poly Pad").
-They now show only on the MIDI page. One internal parameter was appended (params.lock) and it is not stored in the project.
+They now show only on the MIDI page. Tested on an Akai Force, MPC OS 3.9.1 (2026-11-11). One internal parameter was appended (params.lock) and it is not stored in the project.
 
 ## 1.2.0
 
-Not yet tried on a Force (1.1.0 was the last tested build; the engine is 1.1.0 plus ALIGN and TUNE).
+Tried on an Akai Force (MPC OS 3.9.1) as 1.2.1 on 2026-11-11 and works; the engine is 1.1.0 plus ALIGN and TUNE.
 
 - **TUNE** on the Pitch page: TUNE (on/off), SCALE (22 scales: Chromatic, Major, Minor, Harm Minor, Mel Minor, Dorian, Phrygian,
   Lydian, Mixolydian, Locrian, Major/Minor Pent, Blues, Whole Tone, Diminished, Hung Minor, Phryg Dom, Hirajoshi, In Sen, triads, Power 5th),
